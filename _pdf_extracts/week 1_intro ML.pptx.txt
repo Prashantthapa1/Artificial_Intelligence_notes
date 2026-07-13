@@ -1,0 +1,770 @@
+
+
+--- PAGE 1 ---
+CSY3025 Artificial Intelligence Techniques
+Deep Learning
+
+
+--- PAGE 2 ---
+A general model of learning agents
+2
+
+
+--- PAGE 3 ---
+What is Machine Learning?
+“Learning is any process by which a system improves
+performance from experience.”
+- Herbert Simon
+Definition by Tom Mitchell (1998):
+Machine Learning is the study of algorithms that
+improve their performance P
+•
+• at some task T
+• with experience E.
+A well-defined learning task is given by <P, T, E>.
+3
+
+
+--- PAGE 4 ---
+Defining the Learning Task
+Improve on task T, with respect to
+performance metric P, based on experience E
+T: Playing checkers
+P: Percentage of games won against an arbitrary opponent
+E: Playing practice games against itself
+T: Recognizing hand-written words
+P: Percentage of words correctly classified
+E: Database of human-labeled images of handwritten words
+T: Driving on four-lane highways using vision sensors
+P: Average distance traveled before a human-judged error
+E: A sequence of images and steering commands recorded while
+observing a human driver.
+T: Categorize email messages as spam or legitimate.
+P: Percentage of email messages correctly classified.
+E: Database of emails, some with human-given labels
+10
+Slide credit: Ray Mooney
+
+
+--- PAGE 5 ---
+Deep Learning
+• Virtual assistants
+• Whether it’s Alexa or Siri or Cortana, the virtual assistants of online service providers use
+deep learning to help understand your speech and the language humans use when they interact with them.
+• Translations
+• In a similar way, deep learning algorithms can automatically translate between languages. This can be powerful for travelers,
+business people and those in government.
+• Vision for driverless delivery trucks, drones and autonomous cars
+• The way an autonomous vehicle understands the realities of the road and how to respond to them whether it’s a stop sign, a
+ball in the street or another vehicle is through deep learning algorithms.
+• Chatbots and service bots
+• Chatbots and service bots that provide customer service for a lot of companies are able to respond in an intelligent and
+helpful way to an increasing amount of auditory and text questions thanks to deep learning.
+• Facial recognition
+• Deep learning is being used for facial recognition not only for security purposes but for tagging people on Facebook posts
+and we might be able to pay items in a store just by using our faces in the near future.
+• Medicine and pharmaceuticals
+• From disease and tumor diagnoses to personalized medicines created specifically for an individual’s genome, deep learning
+in the medical field has the attention of many of the largest pharmaceutical and medical companies.
+• Personalized shopping and entertainment
+• Ever wonder where Amazon comes up with ideas for what you should buy next and those suggestions are exactly what you
+need but just never knew it before? Yep, it’s deep-learning algorithms at work.
+https://www.forbes.com/sites/bernardmarr/2018/10/01/what-is-deep-learning-ai-a-simple-guide-with-8-practical-examples/#204814b58d4b
+
+
+--- PAGE 6 ---
+Some more examples of tasks that are best
+solved by using a learning algorithm
+Recognizing patterns:
+•
+Facial identities or facial expressions
+–
+– Handwritten or spoken words
+Medical images
+–
+Generating patterns:
+•
+– Generating images or motion sequences
+• Recognizing anomalies:
+– Unusual credit card transactions
+– Unusual patterns of sensor readings in a nuclear power plant
+• Prediction:
+– Future stock prices or currency exchange rates
+7
+Slide credit: Geoffrey Hinton
+
+
+--- PAGE 7 ---
+When Would We Use Machine Learning?
+• When patterns exists in our data
+• Even if we don’t know what they are
+• Or perhaps especially when we don’t know what they are
+• We can not pin down the functional relationships mathematically
+• Else we would just code up the algorithm
+• When we have lots of (unlabeled) data
+• Labeled training sets harder to come by
+• Data is of high-dimension
+• High dimension “features”
+• For example, sensor data
+• Want to “discover” lower-dimension representations
+• Dimension reduction
+• Aside: Machine Learning is heavily focused on implementability
+• Frequently using well know numerical optimization techniques
+• Lots of open source code available
+• See e.g., libsvm (Support Vector Machines): http://www.csie.ntu.edu.tw/~cjlin/libsvm/
+• Most of my code in python: http://scikit-learn.org/stable/ (many others)
+• Languages (e.g., octave: https://www.gnu.org/software/octave/)
+
+
+--- PAGE 8 ---
+When Do We Use Machine Learning?
+ML is used when:
+Human expertise does not exist (navigating on Mars)
+•
+Humans can’t explain their expertise (speech recognition)
+•
+Models must be customized (personalized medicine)
+•
+are based on huge amounts of data (geno
+Models
+•
+mics)
+Learning isn’t always useful:
+There is no need to “learn” to calculate payroll
+•
+5
+Based on slide by E. Alpaydin
+
+
+--- PAGE 9 ---
+Sample Applications
+•
+Web search
+•
+Computational biology
+•
+Finance
+•
+E-commerce
+•
+Space exploration
+•
+Robotics
+•
+Information extraction
+•
+Social networks
+•
+Debugging software
+•
+[Your favorite area]
+8
+Slide credit: Pedro Domingos
+
+
+--- PAGE 10 ---
+Deep Learning
+
+
+--- PAGE 11 ---
+https://towardsdatascience.com/yolo-v3-object-detection-53fb
+7d3bfe6b
+
+
+--- PAGE 12 ---
+
+
+
+--- PAGE 13 ---
+…
+data/dataset/logo32plus/images/cocacola/002075.jpg 691,166,805,371,7
+data/dataset/logo32plus/images/cocacola/002076.jpg 649,192,708,219,7
+data/dataset/logo32plus/images/cocacola/002077.jpg 404,240,516,351,7
+data/dataset/logo32plus/images/cocacola/002078.jpg 468,261,529,315,7
+data/dataset/logo32plus/images/cocacola/002079.jpg 354,806,483,892,7
+data/dataset/logo32plus/images/cocacola/002080.jpg 530,292,923,484,7
+data/dataset/logo32plus/images/cocacola/002082.jpg 256,576,476,671,7
+data/dataset/logo32plus/images/cocacola/002083.jpg 441,114,623,172,7
+data/dataset/logo32plus/images/cocacola/002084.jpg 319,132,761,267,7
+data/dataset/logo32plus/images/cocacola/002085.jpg 648,630,680,663,7
+data/dataset/logo32plus/images/cocacola/002086.jpg 269,139,370,177,7 346,475,402,497,7 528,398,595,432,7
+586,308,623,329,7
+data/dataset/logo32plus/images/cocacola/002087.jpg 110,425,297,775,7
+data/dataset/logo32plus/images/cocacola/002088.jpg 666,419,726,459,7
+data/dataset/logo32plus/images/cocacola/002089.jpg 103,326,283,392,7
+data/dataset/logo32plus/images/cocacola/002090.jpg 181,568,481,749,7
+data/dataset/logo32plus/images/cocacola/002092.jpg 660,202,769,440,7 830,248,884,310,7 147,346,262,381,7
+data/dataset/logo32plus/images/cocacola/002093.jpg 216,398,519,475,7
+data/dataset/logo32plus/images/cocacola/002094.jpg 380,334,645,450,7
+data/dataset/logo32plus/images/cocacola/002095.jpg 533,724,679,782,7 112,479,209,529,7
+data/dataset/logo32plus/images/cocacola/002096.jpg 457,386,535,425,7
+data/dataset/logo32plus/images/cocacola/002097.jpg 292,351,726,529,7
+data/dataset/logo32plus/images/cocacola/002098.jpg 397,304,611,412,7
+data/dataset/logo32plus/images/cocacola/002099.jpg 569,341,652,378,7
+data/dataset/logo32plus/images/cocacola/002100.jpg 306,291,894,631,7
+data/dataset/logo32plus/images/cocacola/002102.jpg 477,421,561,488,7
+data/dataset/logo32plus/images/cocacola/002103.jpg 543,556,684,681,7
+…
+
+
+--- PAGE 14 ---
+Reference book
+• Deep learning with Python by Francois
+Chollet
+• A practical, hands-on exploration of deep
+learning.
+• Python deep-learning framework Keras,
+with TensorFlow as a backend engine.
+• You’ll be able to tackle real-world
+problems:
+image classification, timeseries
+forecasting, sentiment analysis, image and text
+generation, and more.
+
+
+--- PAGE 15 ---
+What is deep learning
+What are artificial intelligence, machine learning, and deep learning?
+
+
+--- PAGE 16 ---
+Artificial intelligence
+• Artificial intelligence was born in the 1950s, when a handful of pioneers in field of computer science
+started asking whether computers could be made to “think”— we’re still exploring today.
+• A concise definition of the field would be as follows: the effort to automate intellectual tasks
+normally performed by humans.
+• As such, AI is a general field that encompasses machine learning and deep learning, but that also
+includes many more approaches that don’t involve any learning.
+• Early chess programs, for instance, only involved hardcoded rules crafted by programmers, and didn’t qualify as
+machine learning. For a fairly long time, many experts believed that human-level artificial intelligence could be
+achieved by having programmers handcraft a sufficiently large set of explicit rules for manipulating knowledge.
+This approach is known as symbolic AI, and it was the dominant paradigm in AI from the 1950s to the late
+1980s. It reached its peak popularity during the expert systems boom of the 1980s.
+• Although symbolic AI proved suitable to solve well-defined, logical problems, such as playing chess,
+it turned out to be intractable to figure out explicit rules for solving more complex, fuzzy problems,
+such as image classification, speech recognition, and language translation. A new approach arose to
+take symbolic AI’s place: machine learning.
+
+
+--- PAGE 17 ---
+Machine Learning
+• Machine learning arises from this question: could a computer go beyond “what
+we know how to order it to perform” and learn on its own how to perform a
+specified task? This question opens the door to a new programming paradigm.
+• In classical programming, the paradigm of symbolic AI, humans input rules (a program)
+and data to be processed according to these rules, and out come answers.
+• With machine learning, humans input data as well as the answers expected from the data,
+and out come the rules. These rules can then be applied to new data to produce original
+answers.
+
+
+--- PAGE 18 ---
+Machine Learning
+
+
+--- PAGE 19 ---
+Learning representations from data
+• Input data points— For instance, if the task is speech recognition, these
+data points could be sound files of people speaking. If the task is image
+tagging, they could be pictures.
+• Examples of the expected output— In a speech-recognition task, these
+could be human-generated transcripts of sound files. In an image task,
+expected outputs could be tags such as “dog,” “cat,” and so on.
+• A way to measure whether the algorithm is doing a good job— This is
+necessary in order to determine the distance between the algorithm’s
+current output and its expected output. The measurement is used as a
+feedback signal to adjust the way the algorithm works. This adjustment
+step is what we call learning.
+
+
+--- PAGE 20 ---
+Learning representations from data
+• A machine-learning model transforms its input data into meaningful outputs, a
+process that is “learned” from exposure to known examples of inputs and
+outputs.
+• Therefore, the central problem in machine learning and deep learning is
+to meaningfully transform data: in other words, to learn useful representations of
+the input data at hand—representations that get us closer to the expected
+output.
+• Machine-learning models are all about finding appropriate representations for
+their input data—transformations of the data that make it more amenable to the
+task at hand, such as a classification task.
+
+
+--- PAGE 21 ---
+Learning representations from data
+• Let’s make this concrete. Consider an x-axis, a y-axis, and some points
+represented by their coordinates in the (x, y) system. We want to develop an
+algorithm that can take the coordinates (x, y) of a point and output whether that
+point is likely to be black or to be white.
+
+
+--- PAGE 22 ---
+Learning representations from data
+• What we need here is a new representation of our data that cleanly separates the white points
+from the black points. One transformation we could use would be a coordinate change.
+• In this new coordinate system, the coordinates of our points can be said to be a
+new representation of our data. And it’s a good one! With this representation, the
+black/white classification problem can be expressed as a simple rule: “Black points are such that x
+> 0,” or “White points are such that x < 0.” This new representation basically solves the
+classification problem.
+
+
+--- PAGE 23 ---
+Learning representations from data
+• All machine-learning algorithms consist of automatically finding such transformations that
+turn data into more-useful representations for a given task. These operations can be coordinate
+changes, linear projections, translations, nonlinear operations, and so on. Machine-learning
+algorithms aren’t usually creative in finding these transformations; they’re merely searching
+through a predefined set of operations, called a hypothesis space.
+• So that’s what machine learning is, technically: searching for useful representations of some
+input data, within a predefined space of possibilities, using guidance from a feedback signal. This
+simple idea allows for solving a remarkably broad range of intellectual tasks, from speech
+recognition to autonomous car driving.
+
+
+--- PAGE 24 ---
+The “deep” in deep learning
+• Deep learning is a new take on learning representations from data that puts an emphasis
+on learning successive layers of increasingly meaningful representations.
+• How many layers contribute to a model of the data is called the depth of the model.
+• Modern deep learning often involves tens or even hundreds of successive layers of
+representations—and they’re all learned automatically from exposure to training data.
+• Meanwhile, other approaches to machine learning tend to focus on learning only one or two layers
+of representations of the data; hence, they’re sometimes called shallow learning.
+
+
+--- PAGE 25 ---
+The “deep” in deep learning
+• The network transforms the digit image into representations that are increasingly different from
+the original image and increasingly informative about the final result. You can think of a deep
+network as a multistage information-distillation operation, where information goes through
+successive filters and comes out increasingly purified (that is, useful with regard to some task).
+
+
+--- PAGE 26 ---
+Designing a Learning System
+Choose the training experience
+•
+•
+Choose exactly what is to be learned
+– i.e. the target function
+•
+Choose how to represent the target function
+•
+function from the experience
+Choose a learning algorithm to infer the target
+Training data
+Learner
+Environment/
+Knowledge
+Experience
+Testing data
+Performance
+Element
+41
+Based on slide by Ray Mooney
+
+
+--- PAGE 27 ---
+ML in a Nutshell
+•
+Tens of thousands of machine learning
+algorithms
+–
+Hundreds new every year
+Every ML algorithm has three components:
+•
+Representation
+–
+– Optimization
+–
+Evaluation
+43
+Slide credit: Pedro Domingos
+
+
+--- PAGE 28 ---
+Training vs. Test Distribution
+•
+We generally assume that the training and
+test examples are independently drawn from
+the same overall distribution of data
+– We call this “i.i.d” which stands for “independent
+and identically distributed”
+If examples are not independent, requires
+•
+collective classification
+•
+If test distribution is different, requires
+transfer learning
+42
+Slide credit: Ray Mooney
+
+
+--- PAGE 29 ---
+Understanding how deep learning works, in 3 figures - 1
+The specification of what a layer does to its input data is stored in the layer’s weights, which in essence are a
+bunch of numbers.
+In technical terms, we’d say that the transformation implemented by a layer is parameterized by its weights(
+parameters). In this context, learning means finding a set of values for the weights of all layers in a network,
+such that the network will correctly map example inputs to their associated targets.
+But here’s the thing: a deep neural network can contain tens of millions of parameters. Finding the correct
+value for all of them may seem like a daunting task, especially given that modifying the value of one
+parameter will affect the behaviour of all the others!
+
+
+--- PAGE 30 ---
+Understanding how deep learning works, in 3 figures - 2
+• To control something, first you need to be
+able to observe it.
+• To control the output of a neural network,
+you need to be able to measure how far
+this output is from what you expected.
+• This is the job of the loss function of the
+network, also called the objective function.
+• The loss function takes the predictions of the
+network and the true target (what you wanted
+the network to output) and computes a
+distance score, capturing how well the network
+has done on this specific example.
+
+
+--- PAGE 31 ---
+Understanding how deep learning works, in 3 figures - 3
+• The fundamental trick in deep learning is to use
+this score as a feedback signal to adjust the value
+of the weights a little, in a direction that will lower
+the loss score for the current example.
+• This adjustment is the job of the optimizer, which
+implements what’s called
+the Backpropagation algorithm: the central
+algorithm in deep learning.
+• Initially, the weights of the network are assigned
+random values, but with every example the network
+processes, the weights are adjusted a little in the
+correct direction, and the loss score decreases.
+• This is the training loop, which, repeated a sufficient
+number of times (typically tens of iterations over
+thousands of examples), yields weight values that
+minimize the loss function.
+• A network with a minimal loss is one for which the
+outputs are as close as they can be to the targets: a
+trained network. Once again, it’s a simple mechanism
+that, once scaled, ends up looking like magic.
+
+
+--- PAGE 32 ---
+Machine Learning as a Process
+- Define measurable and quantifiable goals
+Define
+- Use this stage to learn about the problem
+Objectives
+- Normalization
+- Transformation
+Model
+- Missing Values
+Deployment Data
+- Outliers
+Preparation
+- Study models accuracy
+- Work better than the naïve - Data Splitting
+approach or previous system - Features Engineering
+- Do the results make sense in the - Estimating Performance
+32
+context of the problem - Evaluation and Model
+Model Model
+Selection
+Evaluation Building
+
+
+--- PAGE 33 ---
+ML as a Process: Data Preparation
+Needed for several reasons
+•
+• Some Models have strict data requirements
+• Scale of the data, data point intervals, etc
+• Some characteristics of the data may impact dramatically on the model
+performance
+Time on data preparation should not be underestimated
+•
+•Scaling
+•Missing Values
+Raw •Error Values •Centering Data Modeling
+•Different Scales Data •Skewness 33
+Data •Dimensionality Transformation •Outliers Ready phase
+•Types Problems •Missing Values
+•Many others •Errors
+
+
+--- PAGE 34 ---
+ML as a Process: Feature engineering
+• Determine the predictors (features) to be used is one of the most critical questions
+• Some times we need to add predictors
+• Reduce Number:
+• Fewer predictors more interpretable model and less costly
+• Most of the models are affected by high dimensionality, specially for non-informative predictors
+Multiple models Algorithms that use
+Wrappers adding and models as input Genetics
+removing and performance as Algorithms
+parameter output
+Filters re
+E
+le
+v
+v
+a
+a
+lu
+n
+a
+c
+t
+e
+e
+o
+t
+f
+h
+t
+e
+h e Based normally on
+• Binning predictors correlations
+predictor 34
+
+
+--- PAGE 35 ---
+ML as a Process: Model Building
+• Data Splitting
+• Allocate data to different tasks
+• model training
+• performance evaluation
+• Define Training, Validation and Test sets
+• Feature Selection (Review the decision made previously)
+• Estimating Performance
+• Visualization of results – discovery interesting areas of the problem space
+• Statistics and performance measures
+35
+• Evaluation and Model selection
+• The ‘no free lunch’ theorem no a priory assumptions can be made
+• Avoid use of favorite models if NEEDED
+
+
+--- PAGE 36 ---
+http://playground.tensorflow.org/
+
+
+--- PAGE 37 ---
+Various Function Representations
+Numerical functions
+•
+Linear regression
+–
+– Neural networks
+– Support vector machines
+Symbolic functions
+•
+Decision trees
+–
+– Rules in propositional logic
+Rules in first-order predicate logic
+–
+Instance-based functions
+•
+Nearest-neighbor
+–
+– Case-based
+Probabilistic Graphical Models
+•
+Naïve Bayes
+–
+– Bayesian networks
+Hidden-Markov Models (HMMs)
+–
+–
+Probabilistic Context Free Grammars (PCFGs)
+–
+Markov networks
+44
+Slide credit: Ray Mooney
+
+
+--- PAGE 38 ---
+Various Search/Optimization
+Algorithms
+Gradient descent
+•
+– Perceptron
+– Backpropagation
+• Dynamic Programming
+– HMM Learning
+– PCFG Learning
+• Divide and Conquer
+– Decision tree induction
+– Rule learning
+Evolutionary Computation
+•
+Genetic Algorithms (GAs)
+–
+–
+Genetic Programming (GP)
+–
+Neuro-evolution
+45
+Slide credit: Ray Mooney
+
+
+--- PAGE 39 ---
+Evaluation
+Accuracy
+•
+•
+Precision and recall
+•
+Squared error
+•
+Likelihood
+•
+Posterior probability
+• Cost / Utility
+•
+Margin
+•
+Entropy
+•
+• K-L divergence
+etc.
+47
+Slide credit: Pedro Domingos
+
+
+--- PAGE 40 ---
+ML in Practice
+Understand domain, prior knowledge, and goals
+•
+• Data integration, selection, cleaning, pre-processing, etc.
+Loop
+•
+Learn models
+•
+Interpret results
+•
+Consolidate and deploy discovered knowledge
+48
+Based on a slide by Pedro Domingos
+
+
+--- PAGE 41 ---
+History of Machine Learning
+1950s
+•
+Samuel’s checker player
+–
+– Selfridge’s Pandemonium
+1960s:
+•
+Neural networks: Perceptron
+–
+Pattern recognition
+–
+–
+Learning in the limit theory
+– Minsky and Papert prove limitations of Perceptron
+1970s:
+•
+Symbolic concept induction
+–
+– Winston’s arch learner
+Expert systems and the knowledge acquisition bottleneck
+–
+–
+Quinlan’s ID3
+– Michalski’s AQ and soybean diagnosis
+–
+Scientific discovery with BACON
+–
+Mathematical discovery with AM
+51
+Slide credit: Ray Mooney
+
+
+--- PAGE 42 ---
+History of Machine Learning (cont.)
+1980s:
+•
+Advanced decision tree and rule learning
+–
+– Explanation-based Learning (EBL)
+– Learning and planning and problem solving
+Utility problem
+–
+–
+Analogy
+– Cognitive architectures
+–
+Resurgence of neural networks (connectionism, backpropagation)
+–
+Valiant’s PAC Learning Theory
+–
+Focus on experimental methodology
+1990s
+•
+Data mining
+–
+Adaptive software agents and web applications
+–
+–
+Text learning
+–
+Reinforcement learning (RL) Inductive Logic
+–
+Programming (ILP) Ensembles: Bagging,
+–
+Boosting, and Stacking Bayes Net learning
+–
+52
+Slide credit: Ray Mooney
+
+
+--- PAGE 43 ---
+History of Machine Learning (cont.)
+2000s
+•
+Support vector machines & kernel methods
+–
+Graphical models
+–
+Statistical relational learning
+–
+Transfer learning
+–
+Sequence labeling
+–
+Collective classification and structured outputs
+–
+Computer Systems Applications (Compilers, Debugging, Graphics, Security)
+–
+E-mail management
+–
+Personalized assistants that learn
+2–010s
+•
+Learning in robotics and vision
+– Deep learning systems
+–
+Learning for big data
+–
+Bayesian methods
+–
+Multi-task & lifelong learning
+–
+Applications to vision, speech, social networks, learning to read, etc.
+–
+???
+– 53
+Based on slide by Ray Mooney
+
+
+--- PAGE 44 ---
+TODO
+• Google Colab - https://colab.research.google.com/

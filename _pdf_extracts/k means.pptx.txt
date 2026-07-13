@@ -1,0 +1,361 @@
+
+
+--- PAGE 1 ---
+
+
+
+--- PAGE 2 ---
+
+
+
+--- PAGE 3 ---
+Machine learning works well if we have a labeled data. But what about the cases
+when we do not have the labeled data? One option is to get some labeled data
+and the other is to use unsupervised machine learning. Unsupervised ML
+algorithms discover the interesting patterns in data for learning without any label
+data and teacher for guidance.
+
+
+--- PAGE 4 ---
+
+
+
+--- PAGE 5 ---
+after finding the
+relationship
+patterns, clusters
+the data samples
+that have similar
+features into
+groups.
+
+
+--- PAGE 6 ---
+
+
+
+--- PAGE 7 ---
+
+
+
+--- PAGE 8 ---
+
+
+
+--- PAGE 9 ---
+
+
+
+--- PAGE 10 ---
+
+
+
+--- PAGE 11 ---
+
+
+
+--- PAGE 12 ---
+FUNDAMENTAL CONCEPT
+Why Distance Metrics Matter
+Distance Defines Similarity Common Distance Metrics
+distance is the primary mechanism for identifying similar data points. The choice of distance metric fundamentally Euclidean
+determines which points are considered "nearest" and therefore influences every prediction the algorithm makes. L2 Norm
+Straight-line distance in continuous space
+"Different distance metrics create different notions of similarity. What is 'near' in Euclidean space may be 'far' in Manhattan
+Manhattan space." L1 Norm
+Grid-based movement (city blocks)
+Impact on Decision Boundaries Minkowski
+Generalized
+Different distance metrics produce dramatically different decision boundaries. The same dataset can yield different
+Parameterized generalization
+predictions depending on which metric you choose.
+Cosine
+Angular
+Direction-based similarity
+Euclidean Manhattan Cosine
+Circular boundaries Diamond boundaries Angular boundaries
+Hamming
+Categorical
+Different positions count
+Choosing the Right Metric
+The optimal distance metric depends on your data characteristics, feature types, and problem domain. There is no
+universal "best" metric—only the most appropriate one for your specific use case. Key Insight
+The distance metric is a hyperparameter that should be tuned alongside K.
+Continuous Features: Euclidean, Manhattan, Minkowski
+Experiment with multiple metrics and validate performance to find the optimal
+Text/NLP: Cosine similarity choice for your dataset.
+Categorical: Hamming distance
+
+
+--- PAGE 13 ---
+CORE METRICS
+Euclidean & Manhattan Distance
+Euclidean Distance Manhattan Distance
+L2 Norm • Straight-Line L1 Norm • City Block
+The "ordinary" straight-line distance between two points in Euclidean space. It's the most intuitive Also known as "city block" or "taxicab" distance, Manhattan distance measures the distance between
+and commonly used distance metric, derived from the Pythagorean theorem. two points by only moving along axes (like navigating city blocks).
+Formula (2D) Formula (2D)
+d = √[(x₂-x₁)² + (y₂-y₁)²] d = |x₂-x₁| + |y₂-y₁|
+General Formula (n-D) General Formula (n-D)
+d = √[Σ(xᵢ - yᵢ)²] d = Σ|xᵢ - yᵢ|
+Best For Best For
+• Continuous, dense features • High-dimensional data
+• Low-dimensional data • Grid-based movement
+• Geometric interpretations • Robust to outliers
+Limitations Limitations
+• Sensitive to outliers • Less intuitive geometry
+• Struggles in high dimensions • Ignores diagonal relationships
+Geometric Interpretation: The shortest path between two points Geometric Interpretation: Diamond-shaped distance contours
+# Euclidean Distance # Manhattan Distance
+euclidean_dist <- function(a, b) { manhattan_dist <- function(a, b) {
+sqrt(sum((a - b)^2)) sum(abs(a - b))
+} }
+# Usage # Usage
+point1 <- c(1, 2) point1 <- c(1, 2)
+point2 <- c(4, 6) point2 <- c(4, 6)
+dist <- euclidean_dist(point1, point2) dist <- manhattan_dist(point1, point2)
+# Result: 5.0 # Result: 7.0
+
+
+--- PAGE 14 ---
+ADVANCED METRICS
+Minkowski, Cosine & Hamming Distances
+Minkowski Cosine Hamming
+Measures the cosine of the angle between two vectors, focusing Counts the number of positions at which corresponding values
+A generalized distance metric that encompasses both Euclidean
+on direction rather than magnitude. Essential for differ. Designed for categorical and binary data.
+and Manhattan as special cases through a parameter p.
+high-dimensional sparse data.
+Formula
+Formula Formula
+d = Σ(xᵢ ≠ yᵢ)
+d = (Σ|xᵢ - yᵢ|^p)^(1/p) similarity = (A·B) / (||A|| × ||B||)
+Binary Data
+p = 1 → Manhattan Range: [-1, 1] Count differing bits
+Grid-based distance 1 = same direction, -1 = opposite
+Categorical Data
+p = 2 → Euclidean Distance = 1 - Similarity Count mismatched categories
+Straight-line distance Convert to distance metric
+Normalized Version
+p → ∞ → Chebyshev Ignores Magnitude d = (mismatches) / (total)
+Maximum coordinate difference Focuses purely on orientation
+Use Case: Tune p for optimal performance Use Case: Text mining, document similarity Use Case: DNA sequences, error detection
+
+
+--- PAGE 15 ---
+
+
+
+--- PAGE 16 ---
+
+
+
+--- PAGE 17 ---
+
+
+
+--- PAGE 18 ---
+
+
+
+--- PAGE 19 ---
+
+
+
+--- PAGE 20 ---
+
+
+
+--- PAGE 21 ---
+
+
+
+--- PAGE 22 ---
+
+
+
+--- PAGE 23 ---
+
+
+
+--- PAGE 24 ---
+
+
+
+--- PAGE 25 ---
+
+
+
+--- PAGE 26 ---
+
+
+
+--- PAGE 27 ---
+
+
+
+--- PAGE 28 ---
+
+
+
+--- PAGE 29 ---
+
+
+
+--- PAGE 30 ---
+
+
+
+--- PAGE 31 ---
+
+
+
+--- PAGE 32 ---
+
+
+
+--- PAGE 33 ---
+
+
+
+--- PAGE 34 ---
+
+
+
+--- PAGE 35 ---
+
+
+
+--- PAGE 36 ---
+
+
+
+--- PAGE 37 ---
+
+
+
+--- PAGE 38 ---
+
+
+
+--- PAGE 39 ---
+
+
+
+--- PAGE 40 ---
+
+
+
+--- PAGE 41 ---
+
+
+
+--- PAGE 42 ---
+
+
+
+--- PAGE 43 ---
+
+
+
+--- PAGE 44 ---
+
+
+
+--- PAGE 45 ---
+
+
+
+--- PAGE 46 ---
+
+
+
+--- PAGE 47 ---
+
+
+
+--- PAGE 48 ---
+
+
+
+--- PAGE 49 ---
+
+
+
+--- PAGE 50 ---
+
+
+
+--- PAGE 51 ---
+
+
+
+--- PAGE 52 ---
+
+
+
+--- PAGE 53 ---
+
+
+
+--- PAGE 54 ---
+
+
+
+--- PAGE 55 ---
+
+
+
+--- PAGE 56 ---
+
+
+
+--- PAGE 57 ---
+
+
+
+--- PAGE 58 ---
+
+
+
+--- PAGE 59 ---
+
+
+
+--- PAGE 60 ---
+
+
+
+--- PAGE 61 ---
+
+
+
+--- PAGE 62 ---
+
+
+
+--- PAGE 63 ---
+
+
+
+--- PAGE 64 ---
+
+
+
+--- PAGE 65 ---
+
+
+
+--- PAGE 66 ---
+
+
+
+--- PAGE 67 ---
+
+
+
+--- PAGE 68 ---
+
+
+
+--- PAGE 69 ---

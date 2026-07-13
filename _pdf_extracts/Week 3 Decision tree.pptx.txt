@@ -1,0 +1,650 @@
+
+
+--- PAGE 1 ---
+Week 3
+Decision Tree
+
+
+--- PAGE 2 ---
+Outline
+• Decision Tree- basic concepts
+• Decision Tree – Example
+• Decision Tree – Evaluation of Model
+
+
+--- PAGE 3 ---
+
+
+
+--- PAGE 4 ---
+
+
+
+--- PAGE 5 ---
+
+
+
+--- PAGE 6 ---
+Basic Concepts
+• A decision tree is a decision
+support tool
+• For classification
+• For regression (with
+quantification)
+• It uses a tree – with nodes
+and branches
+• Payoff table
+
+
+--- PAGE 7 ---
+
+
+
+--- PAGE 8 ---
+
+
+
+--- PAGE 9 ---
+Example 1: COVID Vaccine
+Let us classify some of the COVID vaccines: Pfizer, Moderna,
+Astrazeneca, Sputnik, and X. Pfizer, Moderna, and X vaccines are very
+costly while Astrazeneca and Sputnik are cheap. On the other hand,
+efficacies for Pfizer, Moderna and Astrazeneca are high while Sputnik
+and X are low. Draw a payoff table based on this information.
+
+
+--- PAGE 10 ---
+Payoff Table
+Type of Vaccines Cost and Benefit
+Cost Efficacy
+Pfizer High High
+Moderna High High
+Astrazeneca Low High
+Sputnik Low Low
+
+
+--- PAGE 11 ---
+Decision Tree
+Cost
+low high
+Efficacy Efficacy
+low high low high
+Sputnik Astrazeneca X Pfizer Moderna
+
+
+--- PAGE 12 ---
+
+
+
+--- PAGE 13 ---
+
+
+
+--- PAGE 14 ---
+Example 2 – Loan Application
+What are the rules?
+
+
+--- PAGE 15 ---
+Example 3: Restaurant (Russell and Norvig, 2003)
+
+
+--- PAGE 16 ---
+Data for Golf
+
+
+--- PAGE 17 ---
+Example 4: Play Golf
+What are the rules?
+
+
+--- PAGE 18 ---
+Example 5: Freight Charges - Transcript
+Air shipping charges are set depending on the weight of a parcel. The basic rate is $3/lb, reducing to $2/lb for excess
+over 20 lb, with a minimum of $6. Surface freight is $2/lb for express delivery. However, this rate only applies in the
+local delivery area. If the shipping address is outside the local area and the parcel weighs more than 20lb, or express
+delivery is not required, the surface rate is the same as for local delivery (express). Normal delivery of packages is
+$2/lb, while express delivery up to 20lb is $2/lb, with $1 express surcharge (per pound).
+Notwithstanding the provisions of the previous paragraph, air freight to
+destinations west of the Mississippi is charged at double rate”
+Courtesy: http://www.cs.toronto.edu/~jm/340S/Slides6/Rules.pdf
+
+
+--- PAGE 19 ---
+Extracted Information
+Air shipping charges are set depending on the weight of a parcel. The basic rate is $3/lb, reducing to $2/lb for excess
+over 20 lb, with a minimum of $6. Surface freight is $2/lb for express delivery. However, this rate only applies in the local
+delivery area. If the shipping address is outside the local area and the parcel weighs more than 20lb, or express delivery
+is not required, the surface rate is the same as for local delivery (express). Normal delivery of packages is $2/lb, while
+express delivery up to 20lb is $2/lb, with $1 express surcharge (per pound).
+Notwithstanding the provisions of the previous paragraph, air freight to
+destinations west of the Mississippi is charged at double rate”
+Air Shipping Surface Freight
+Basic Rate - $3/lb (2lb < weight ≤ 20lb) Express Delivery, local area - $2/lb
+Minimum Rate - $6 (2 lb or less) Outside local area
+Excess over 20 lb - $2/lb (> 20lb) • no express delivery, > 20lb - $2/lb
+West of Mississippi – double rate • Normal delivery - $2/lb
+• Express delivery, > 20lb - $2/lb up to 20lb + $1/lb
+
+
+--- PAGE 20 ---
+$2/lb $2/lb up to
+20lb
++
+$1/lb for
+surcharge
+
+
+--- PAGE 21 ---
+Example 6: Old Wildcatter Problem
+Monetary Payoffs of Oil Wildcatter ’s Problem
+Decision – to drill or not to drill?
+Probability of well condition
+(sum of probabilities = 1) :
+• Dry with probability 0.5
+• Wet with probability 0.3
+• Soaking with probability 0.2
+Cost of drilling (sum of probabilities = 1):
+• Low, with probability 0.2, ($150,000)
+• Fair, with probability 0.6 ($300,000)
+• High, with probability 0.2 ($500,000)
+
+
+--- PAGE 22 ---
+All in 1 table
+Monetary Payoffs
+Well Probability
+Condition Well Drill Not Drill
+Condition
+Dry 0.5
+Dry 0 0
+Wet 0.3
+Soaking 0.2 Wet $700,000 0
+Soaking $1,200,000 0
+Cost of Drilling
+Probability Cost
+Low 0.2 $150,000
+Fair 0.6 $300,000
+High 0.2 $500,000
+
+
+--- PAGE 23 ---
+Drilling Well Formula
+Observation Cost Condition Drill? X-Y Value
+Payoffs Drill No Drill
+1Low Dry Yes
+Dry 0 0
+2Low Dry No
+Wet $700,000 0
+3Low Wet Yes
+Soaking $1,200,000 0
+4Low Wet No
+5Low Soaking Yes
+Drilling Cost
+6Low Soaking No
+Low $150,000
+7
+Fair $300,000
+8
+High $500,000
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+
+
+--- PAGE 24 ---
+Observation Drilling Cost Well Condition Drill? Formula Value
+1 Low Dry Yes = 0 - $150,000 -$150,000.00
+2 Low Dry No $0.00
+3 Low Wet Yes = $700,000 - $150,000 $550,000.00
+4 Low Wet No $0.00
+5 Low Soaking Yes = $1,200,0000 - $150,000 $1,050,000.00
+6 Low Soaking No $0.00
+7 Fair Dry Yes = 0 - $300,000 -$300,000.00
+8 Fair Dry No $0.00
+9 Fair Wet Yes = $700,000 - $300,000 $400,000.00
+10 Fair Wet No $0.00
+11 Fair Soaking Yes = $1,200,0000 - $300,000 $900,000.00
+12 Fair Soaking No $0.00
+13 High Dry Yes = 0 - $500,000 -$500,000.00
+14 High Dry No $0.00
+15 High Wet Yes = $700,000 - $500,000 $200,000.00
+16 High Wet No $0.00
+17 High Soaking Yes = $1,200,000 - $500,000 $700,000.00
+18 High Soaking No $0.00
+
+
+--- PAGE 25 ---
+Calculation
+Drill
+• Low - total is $300,000
+• dry: 0.5 * ($-150,000) = -$75,000
+• wet: 0.3 * ($550,000) = $165,000
+• soaking: 0.2 * ($1,050,000) = $210,000
+• Fair – total is $150,000
+• dry: 0.5 * ($-300,000) = -$150,000
+• wet: 0.3 * ($400,000) = $120,000
+• soaking: 0.2 * ($900,000) = $180,000
+• High – total is -$50,000
+• dry: 0.5 * ($-500,000) = -$250,000
+• wet: 0.3 * ($200,000) = $60,000
+• soaking: 0.2 * ($700,000) = $140,000
+
+
+--- PAGE 26 ---
+Calculation for No Drill?
+
+
+--- PAGE 27 ---
+Final Calculation
+Drill – total is $140,000
+• Low – 0.2 * ($300,000) = $60,000
+• Fair - 0.6 * ($150,000) = $90,000
+• High - 0.2 * (-$50,000) = -$10,000
+No Drill?
+
+
+--- PAGE 28 ---
+Draw the Decision Tree
+Drill
+• Low - total is $300,000 Drill – total is $140,000
+• dry: 0.5 * ($-150,000) = -$75,000
+• Low – 0.2 * ($300,000)
+• wet: 0.3 * ($550,000) = $165,000
+= $60,000
+• soaking: 0.2 * ($1,050,000) = $210,000
+• Fair - 0.6 * ($150,000)
+• Fair – total is $150,000
+= $90,000
+• dry: 0.5 * ($-300,000) = -$150,000
+• High - 0.2 * (-$50,000)
+• wet: 0.3 * ($400,000) = $120,000
+= -$10,000
+• soaking: 0.2 * ($900,000) = $180,000
+• High – total is -$50,000
+• dry: 0.5 * ($-500,000) = -$250,000
+• wet: 0.3 * ($200,000) = $60,000
+• soaking: 0.2 * ($700,000) = $140,000
+
+
+--- PAGE 29 ---
+
+
+
+--- PAGE 30 ---
+Evaluation of Decision Tree Model
+• Entropy
+• Information Gain
+• Gini index
+
+
+--- PAGE 31 ---
+Entropy
+• Measure of impurity, disorder, or uncertainty in a set of examples
+• Measure the randomness of information being processed
+• The higher the entropy value, the more difficult to draw conclusions
+from that information
+• Entropy controls how a decision tree splits the data
+• https://towardsdatascience.com/entropy-how-decision-trees-make-d
+ecisions-2946b9c18c8
+
+
+--- PAGE 32 ---
+Entropy Formula
+• https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8
+• http://www.learnbymarketing.com/481/decision-tree-flavors-gini-info-gain/
+• https://www.math.unipd.it/~aiolli/corsi/0708/IR/Lez12.pdf
+• P(value ) – probability of getting value
+i i
+
+
+--- PAGE 33 ---
+Example 1 - Entropy
+1.1 We have a set of items: 1.2 We have a set of items: 1.3 We have a set of items:
+R = {z, z, z, z, z, y, y, y} R= {y, y, y, y, y, y, y, y}
+R= {z, z, z, z, y, y, y, y}
+P(z) = 5/8 • Calculate the entropy of the set
+• Calculate the entropy of the set
+P(y) = 3/8 • Entropy(R) = I(R)
+• Entropy(R) = I(R)
+• Calculate the entropy of the set
+= - [P(z) x log (P(z)) + P(y) x log (P(y)) ]
+= - [P(z) x log (P(z)) + P(y) x log (P(y)) ] 2 2
+• Entropy(R) = I(R) 2 2
+= - [0/8 x log (0/8) + 8/8 x log (8/8)]
+= - [4/8 x log (4/8) + 4/8 x log (4/8)] 2 2
+= - [P(z) x log (P(z)) + P(y) x log (P(y)) ]
+2 2
+= - [0/8 x (?) + 8/8 x (0]
+2 2
+= - [4/8 x (-1) + 4/8 x (-1]
+= - [5/8 x log (5/8) + 3/8 x log (3/8)]
+2 2 = - [0]
+= - [5/8 x (-0.678) + 3/8 x (-1.415)] = - [-1]
+= 0
+= - [-0.954] = +1
+(Minimum impurity) – not good for
+= +0.954 training
+(Maximum impurity) – good for training
+Conclusion: If a dataset can be divided into classes then the
+dataset is non-homogenous and impurity (Entropy) is high.
+
+
+--- PAGE 34 ---
+Example 2:
+• Entropy(9+, 7-)
+= Work out the values
+• Log base 2 calculator
+• https://www.calculator.net/log-calculator.html?xv=8&base=2&yv=
+&x=79&y=21
+• https://www.math.unipd.it/~aiolli/corsi/0708/IR/Lez12.pdf
+
+
+--- PAGE 35 ---
+• Entropy(9+, 7-)
+= - [P(+) x log (P(+)) + P(-) x log (P(-)) ]
+2 2
+= - [9/16 x log (9/16) + 7/16 x log (7/16)]
+2 2
+= - [9/16 x (log 0.5625) + 7/16 x (log 0.4375)]
+2 2
+= -[ 0.5625 x (-0.8301) + 0.4375 x (-1.1926)
+= +0.9887
+
+
+--- PAGE 36 ---
+Max Entropy Values
+• Two classes: Max entropy is 1.
+• Four Classes: Max entropy is 2.
+• Eight Classes: Max entropy is 3.
+• 16 classes: Max entropy is 4.
+
+
+--- PAGE 37 ---
+Information Gain
+• We want to determine which attribute in a given set of training feature
+vectors is most useful for discriminating between the classes to be learned.
+• Information Gain is used in feature selection
+• Information Gain tells us how important a given attribute of the feature
+vectors is
+• Constructing a decision tree is all about finding an attribute that returns
+the highest information gain and the lowest possible entropy.
+• https://homes.cs.washington.edu/~shapiro/EE596/notes/InfoGain.pdf
+• https://medium.com/analytics-vidhya/entropy-calculation-information-gai
+n-decision-tree-learning-771325d16f
+
+
+--- PAGE 38 ---
+Information Gain Formula Information Gain = entropy(parent) – [weighted entropy(children)]
+Parent Entropy: Entropy(40*, 20+)
+= -[ 40/60 x log (40/60) + 20/60 x log (20/60)]
+2 2
+= -[40/60 x (-0.584 ) + 20/60 x (-1.586)]
+= -[-0.919]
+= 0.919
+** ** ** ** **
+** ** ** ** **
+Parent
+Child 1 Entropy: Entropy(30*, 6+)
+** ** ** ** **
+40*
+= -[ 30/36 x log (30/36) + 6/36 x log (6/36)]
+** ** ** ** **
+20+ 2 2
+= -[30/36 x (-0.264 ) + 6/36 x (-2.582)]
+++ ++ ++ ++ ++
+= -[-0.651]
+++ ++ ++ ++ ++
+= 0.651
+Child 1 Entropy: Entropy(10*, 14+)
+= -[ 10/24 x log (10/24) + 14/24 x log (14/24)]
+** ** ** ** ** ** ** ** ** **
+2 2
+= -[10/24 x (-1.279 ) + 14/24 x (-0.778)]
+** ** ** ** ** ++ ++ ++ ++ ++
+= -[-0.991]
+** ** ** ** ** ++ ++
+= 0.991
+++ ++ ++
+Child 1
+Child 2
+Information Gain = 0.919 – 36/60 * 0.651 – 24/60*0.991
+30*
+10*
+= 0.132
+6+
+14+
+
+
+--- PAGE 39 ---
+Look at Complete Example for Calculation of
+Information Gain
+• S – Set
+• A – Attribute (i.e. Feature, Vector)
+• Values(A) – all values of Attribute (i.e. Feature, Vector)
+• S – subset of S whereby attribute A has value v
+v
+• https://medium.com/analytics-vidhya/entropy-calculation-informatio
+n-gain-decision-tree-learning-771325d16f
+
+
+--- PAGE 40 ---
+• Attribute 1 – Wind (values are weak, strong)
+• Attribute 2 – Humidity (values are high, normal)
+• Attribute 3 – Temperature (values are hot, mild, cool)
+• Attribute 4 – Outlook (values are sunny, overcast, rain)
+
+
+--- PAGE 41 ---
+• Calculate the information • Entropy(S) = 0.940
+• Entropy(S ) = - [6/8 x log (6/8) + 2/8 x log (2/8)] = 0.811
+gain for attribute Wind
+weak 2 2
+• Entropy(S ) = - [3/6 x log (3/6) + 3/6 x log (3/6)] = 1.0
+• S = [9 yes, 5 No] strong 2 2
+• Information Gain(S, Wind)
+• S = [6 yes, 2 No]
+= Entropy(S) – [8/14 x Entropy(S ) + 6/14 x Entropy(S )]
+weak weak strong
+= 0.940 -8/14 x 0.811 – 6/14 x 1.0
+• S = [3 yes, 3 No]
+strong
+=0.940 – 0.463 – 0.429
+= 0.048
+
+
+--- PAGE 42 ---
+Calculated Information Gain values for all the 4 attributes are:
+• Gain(S, Wind) = 0.048
+• Gain(S, Outlook) = 0.246
+• Gain(S, Humidity) = 0.151
+• Gain(S, Temperature) = 0.029
+• The main goal of information gain is to find the attribute that is most
+useful for classifying the training dataset.
+• Outlook will be the root of the tree
+
+
+--- PAGE 43 ---
+• Outlook = sunny (D1, D2, D8, D9, D11); (2 yes, 3 no)
+• Outlook = overcast (D3, D7, D12, D13); (4 yes, 0 no) -> yes
+• Outlook = rain (D4, D5, D6, D10, D14); (3 yes, 2 no)
+• https://medium.com/analytics-vidhya/entropy-calculation-information-gain-decision-tree-learning-771325d16f
+
+
+--- PAGE 44 ---
+• Do leaf by leaf
+• Sunny Leaf
+S = 5
+sunny
+Humidity = [0 yes, 3 No] -> No
+high
+Humidity = [2 yes, 0 no] -> Yes
+normal
+Gain(S , Humidity) = Entropy(S ) - [3/5 x Entropy(Humidity )
+sunny sunny high
++ 2/5 x Entropy(Humidity )]
+normal
+= 0.970
+Results
+Gain(S , Humidity) = 0.970
+sunny
+Gain(S , Temperature) = 0.570
+sunny
+Gain(S , Wind) = 0.019
+sunny
+Day Outlook Temp Humidity Wind Play?
+Conclusion
+Child node for Outlook = sunny is Humidity
+1 Sunny Hot High Weak No
+The leaf for Humidity is No
+high
+2 Sunny Hot High Strong No
+The leaf for is Humidity is Yes
+normal
+Both cannot be further partitioned 8 Sunny Mild High Weak No
+9 Sunny Cool Normal Weak Yes
+11 Sunny Mild Normal Strong Yes
+
+
+--- PAGE 45 ---
+• Repeat for Outlook =
+Rain
+
+
+--- PAGE 46 ---
+Gini Index
+• Gini index or Gini impurity measures the degree or probability of a
+particular variable being wrongly classified when it is randomly chosen
+• Gini Impurity tells us what is the probability of misclassifying an
+observation.
+• The lower the Gini the better the split.
+• A Gini Index of 0.5 denotes equally distributed elements into some classes.
+• Favours larger partitions
+• The algorithm works as 1 – [ P(class1)^2 + P(class2)^2 + … + P(classN)^2]
+
+
+--- PAGE 47 ---
+Gini Index Formula
+• Gini Index = deducting the sum of squared of probabilities of each
+class from 1
+• P – denoted the probability of an element being classified for a
+j
+distinct class
+• Example – Look at this https://blog.quantinsti.com/gini-index/
+
+
+--- PAGE 48 ---
+Note: The Column Return is the Target/Dependent Variable
+Calculate Gini Index for Past Trend
+• P(Past Trend=Positive): 6/10
+• P(Past Trend=Negative): 4/10
+Past Trend = Positive
+• If (Past Trend = Positive & Return = Up), probability = 4/6
+• If (Past Trend = Positive & Return = Down), probability = 2/6
+• Gini index = 1 - ((4/6)^2 + (2/6)^2) = 0.45
+Past Trend = Negative
+• If (Past Trend = Negative & Return = Up), probability = 0/4
+• If (Past Trend = Negative & Return = Down), probability = 4/4
+• Gini index = 1 - ((0)^2 + (4/4)^2) = 0
+Overall Past Trend (Positive and Negative)
+• Weighted sum of the Gini Indices can be calculated as follows:
+• Gini Index for Past Trend = (6/10) x 0.45 + (4/10) x 0 = 0.27
+
+
+--- PAGE 49 ---
+Calculation of Gini Index for Open Interest
+• P(Open Interest=High): 4/10
+• P(Open Interest=Low): 6/10
+For Open Interest = High
+• If (Open Interest = High & Return = Up), probability = 2/4
+• If (Open Interest = High & Return = Down), probability = 2/4
+• Gini index = 1 - ((2/4)^2 + (2/4)^2) = 0.5
+For Open Interest = Low
+• If (Open Interest = Low & Return = Up), probability = 2/6
+• If (Open Interest = Low & Return = Down), probability = 4/6
+• Gini index = 1 - ((2/6)^2 + (4/6)^2) = 0.45
+For Overall Open Interest (High and Low)
+• Weighted sum of the Gini Indices can be calculated as follows:
+• Gini Index for Open Interest = (4/10) x 0.5 + (6/10) x 0.45 = 0.47
+
+
+--- PAGE 50 ---
+Repeat for Trading Volume
+Results
+Attributes/Features Gini Index
+Past Trend 0.27
+Open Interest 0.47
+Trading Volume 0.34
+Lowest Gini Index
+Past Trend – will be used as Root of the
+tree
+
+
+--- PAGE 51 ---
+Calculate the Gini Index for
+the Positive Branch
+See
+https://blog.quantinsti.com
+/gini-index/
+• Calculate Gini Index of
+Open Interest for Positive
+Past Trend
+• Calculate Gini Index of
+Attribute/Feature Gini Index
+Trading Volume for
+Open Interest 0.33
+Positive Past Trend
+Trading Volume 0.00
+• Results
+• Trading Volume has the
+minimum Gini Index and it
+will be the next node.
+
+
+--- PAGE 52 ---
+
+
+
+--- PAGE 53 ---
+
+
+
+--- PAGE 54 ---
+
+
+
+--- PAGE 55 ---
+
+
+
+--- PAGE 56 ---
+
+
+
+--- PAGE 57 ---
+
+
+
+--- PAGE 58 ---
+
+
+
+--- PAGE 59 ---
+Resource
+Harvard Business Review
+• https://hbr.org/1964/07/decision-trees-for-decision-making
+Model Evaluation
+http://www.learnbymarketing.com/481/decision-tree-flavors-gini-info-
+gain/
+https://homes.cs.washington.edu/~shapiro/EE596/notes/InfoGain.pdf
+
+
+--- PAGE 60 ---
+End

@@ -1,0 +1,396 @@
+
+
+--- PAGE 1 ---
+Week 2 Regression
+
+
+--- PAGE 2 ---
+What is regression?
+• https://www.investopedia.com/terms/r/regression.asp
+• It is a statistical method to determine the strength and character of
+the relationship between a series of independent variables
+(predictors) and dependent variable (target variables)
+
+
+--- PAGE 3 ---
+Types of regression
+• Linear Regression
+• Multiple Linear Regression
+• Logistic Regression
+• Logarithmic Regression (and also Transformation of data)
+• Polynomial (and exponential) - Univariate and Multivariate
+polynomial regression
+• Time Series Regression
+• KNN (K-Nearest Neighbour) Regression
+
+
+--- PAGE 4 ---
+Basic Concepts
+• Predictor Variables (Independent Variables) - could be categorical, or
+continuous
+• Target Variables (Dependent variable) - could be categorical (for
+classification) , or continuous (for estimation or prediction)
+• Residuals – observed value – predicted value (this is for evaluation of
+model performance)
+
+
+--- PAGE 5 ---
+Basic Concepts – Understand the Statistics of Relationships
+Represent relationships using Plots and Charts
+Bivariate numerical data - Scatterplot
+https://chartio.com/learn/charts/what
+Bivariate categorical
+-is-a-scatter-plot/
+data
+1. If both are
+categorical data
+then use a table
+2. Based on (1), find
+the percentage for
+each relevant
+category
+3. Use Bar chart or
+pie chart to
+represent (2)
+
+
+--- PAGE 6 ---
+Basic Concepts – Understand the Statistics of Relationships
+
+
+--- PAGE 7 ---
+Basic Concepts – Understand the Statistics of Relationships
+
+
+--- PAGE 8 ---
+Basic Concepts – Quantification of Relationships
+Relationship between numerical data
+• Correlation coefficient (r)
+Relationship between categorical data
+• Association
+• Hypothesis testing based on frequency contingency table (just like Chi Square)
+• Example:
+• Very good video
+https://www.coursera.org/lecture/inferential-statistics/2-01-categorical-association-and-independence-
+2jj1Q
+• https://www.youtube.com/watch?v=_yndRs2HEq0
+• https://www.youtube.com/watch?v=fY8edxVRG-4
+• https://in.sagepub.com/sites/default/files/upm-assets/67534_book_item_67534.pdf
+
+
+--- PAGE 9 ---
+Python Tools
+• SK-Learn
+• Statsmodel
+
+
+--- PAGE 10 ---
+How to build a simple linear
+regression model (for fit regression)?
+• Look at excel sheet
+
+
+--- PAGE 11 ---
+Regression Model Evaluation
+• Model Evaluation 1
+• Assessing the fit of regression models
+• R-squared (and Adjusted R-squared)
+• RMSE
+• Model Evaluation 2
+• Assessing the classification or regression models
+• Confusion matrix
+• AUC/ROC
+• Accuracy
+• Precision
+• Recall
+
+
+--- PAGE 12 ---
+Model Evaluation 1
+• R-squared or coefficient of determination
+• SST – Sum of Squares Total (measures variation from the mean)
+• SSE – Sum of squares Error (measures variation of data from
+model’s predicted values)
+• R-squared = (SST-SSE)/SST; used to explain the degree to which input (or
+predictor) variables explain the variation of the output (predicted or target)
+variables
+• R-squared value: 0-1 (equivalent to 0% to 100%)- how close data is to a
+fitted line; R-squared value = 1.0 or 100% is perfect fit. If R-squared is 0.9
+then it indicates that 90% of the output variables is explained by the input
+variables
+• R-squared value – higher indicates a better goodness of fit for the model
+• Increased improvement in regression model -> increases in R-squared
+
+
+--- PAGE 13 ---
+• Critique of R-squared
+• How to improve R-squared value?
+• Add more predictors to the regression model
+• The increase is artificial because the predictors are not actually improving
+the regression model. This is known as overfitting the model.
+• If number of predictors increases -> degree of freedom increases
+• Adjusted R-squared
+• Adjusted R-squared - R-squared value which indicates how well the
+predictors fit a model, and adjusted for the number predictors in the model
+• It adjusts the R-squared for predictors that are not significant in a regression
+model
+• Suppose we add additional input variables to a model and the resultant
+adjusted R-squared:
+• decreases indicates that the additional input variables are not adding value to the model
+• Increases indicates that the additional input variables are adding value to the model
+• Adjusted R-squared is always equal or less than R-squared
+• https://corporatefinanceinstitute.com/resources/knowledge/other/adjusted-
+r-squared/
+
+
+--- PAGE 14 ---
+• F-Statistics
+• F-test
+• To answer the question “Do the independent variables reliably predict the
+dependent variable?”. The p-value is compared to your alpha level (typically
+0.05) and, if smaller, you reject the null hypothesis (or accept the alternative
+hypothesis); you can conclude “Yes, the independent variables reliably predict
+the dependent variable”.
+• Compares a model with no predictor (intercept-only model – mean of Y when
+X=0) and specified model;
+• Hypotheses test
+• Null hypothesis – fit of the intercept-only model and your model are equal
+• Alternative hypothesis – fit of your model is better than the intercept-only model
+• F-statistic for the overall model: example, F value = 387.18, p<0.0001 (reject
+null hypothesis, highly significantly different)
+
+
+--- PAGE 15 ---
+How to Interpret Regression Results?
+• From the parameter estimates, the fitted model is:
+• Weight =
+• -3219.68928 + 36.47545 * Length
+
+
+--- PAGE 16 ---
+Additional resources interpretation
+of regression
+• https://stats.idre.ucla.edu/sas/output/regression-analysis/
+• https://stats.idre.ucla.edu/sas/webbooks/reg/chapter1/regressionwi
+th-saschapter-1-simple-and-multiple-regression/
+• https://stats.idre.ucla.edu/sas/webbooks/reg/chapter1/regression-wi
+th-sasannotated-sas-output-for-simple-regression-analysis/
+
+
+--- PAGE 17 ---
+Multiple Linear Regression Model for
+Prediction
+• Regression model with model than 1 predictor (or input) variables
+• Target variable is numeric
+• Y = a + b1*X1 + b2*X2 + b3*X3 +……..+ bn*Xn where:
+• Y is the target/predicted variable
+• a is the intercept
+• b1, b2, b3, bn are coefficients
+• X1, X2, X3….Xn are predictor or input variables
+• Look at Example 2.2 in lab exercises
+• Look at the coefficients and intercepts values
+
+
+--- PAGE 18 ---
+Logistic Regression
+• The target variables are categorical variables (i.e it will be classes).
+• The first example in the lab exercise is employing logistic regression as
+a classifier for three different species/classes of irises (i.e. setosa,
+versicolor, and virginica).
+• The aim is to build a logistic regression model.
+• We shall use iris.csv. We shall use the logistic regression model as a
+prediction model (i.e. if we use all the 4 input variables: petal length,
+petal width, sepal width and sepal length, then with a given set of
+input values of these 4 variables, the iris class can be predicted).
+
+
+--- PAGE 19 ---
+Model Evaluation 2
+• ROC/AUC
+• A Receiver Operating Characteristic (ROC) curve
+• Evaluate the performance of a classification model
+• Values are based on the confusion matrix
+• A graph with the x-axis values as the False Positive Rate (FPR) and the y-axis values as the
+True Positive Rate (TPR).
+• The Area Under the Curve (AUC) for the ROC
+• AUC < 0.5 then it is a bad model
+• Basic Concepts
+• https://developers.google.com/machine-learning/crash-course/classification/
+roc-and-auc
+
+
+--- PAGE 20 ---
+Basic Concepts
+• True Positive Rate (TPR) ROC curve: TPR vs FPR
+• Known as Recall
+• TP – True Positive
+• FN – False Negative
+• False Positive Rate (FPR)
+• FP – False Positive
+• TN – True Negative
+
+
+--- PAGE 21 ---
+Basic Concepts • AUC – Area under ROC Curve
+• Integral calculus from (0,0) to (1,)
+• AUC < 0.5 – bad classifier model
+• AUC > 0.5 – good classifier model
+AUC – bad classifier model
+AUC – good classifier model
+
+
+--- PAGE 22 ---
+Model Evaluation Metrics:
+Accuracy, Precision and Recall
+Accuracy Score - Accuracy It is the ratio of number of correct predictions to the total number of input
+samples.
+Note: In the formula below, FPR is R
+https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html
+
+
+--- PAGE 23 ---
+• Confusion Matrix
+• See next slide
+
+
+--- PAGE 24 ---
+ROC Curve and
+Confusion Matrix
+
+
+--- PAGE 25 ---
+Logarithm Regression Model
+• Logarithm Regression Model
+• Equation is Y = a + b*ln(X)
+• X must be greater than 0
+• a is the intercept
+• b is coefficient
+• When b >0, model is increasing
+• When b < 0, model is decreasing
+• ln – natural log
+• used to model situations where growth or decay accelerates rapidly at first and
+then slows over time.
+• https://courses.lumenlearning.com/ivytech-collegealgebra/chapter/build-a-lo
+garithmic-model-from-data/
+
+
+--- PAGE 26 ---
+Examples of Logarithm Regression Models
+b < 0 b > 0
+
+
+--- PAGE 27 ---
+Exponential Regression Model
+• Exponential Regression Model
+• Equation is Y = ab X
+• a is not equal to 0
+• Exponential regression model is used to model situations in which:
+• growth begins slowly and then accelerates rapidly without bound (to infinity),
+• or where decay begins rapidly and then slows down to get closer and closer to
+zero.
+
+
+--- PAGE 28 ---
+Examples of Exponential Regression Models
+b < 0
+b > 0
+
+
+--- PAGE 29 ---
+Transformation of Data
+• Logarithm Transformation
+• Exponential Transformation
+• Logarithmic Transformation of data helps reduce skewness in the
+data. You can could conduct log transformation for continuous data.
+• Look at Example 4.1 in Lab Exercises
+
+
+--- PAGE 30 ---
+Polynomial Regression
+• Polynomial regression is a special case of linear regression where we fit a
+polynomial equation on the data with a curvilinear relationship between the
+target variable and the independent variables (look at the scatterplot).
+• Univariate Polynomial Regression - Look at Example 5.1 in lab exercises
+• Multivariate Polynomial Regression – Look at Example 5.2 in lab exercises
+• Univariate - Degree 2 : Y = intercept +aX1 + bX1 2 + residual (or bias)
+• a, b are weights
+• X1 is a predictor
+• 2 - degree
+• Bivariate – Degree 2 : Y = intercept + aX1 + bX2 + cX1 2 + dX2 2 + (eX1X2 – if
+there is interaction) + residual (or bias)
+• a, b, c, and d are weights
+• X1 and X2 are predictors
+• 2 - degree
+
+
+--- PAGE 31 ---
+Polynomial Regression
+• Multivariate – Degree n and single predictor
+• Y = θ + θ X + θ X 2 + θ X 3 +……. + θ X n
+0 1 2 3 n
+• θ is bias
+0
+• θ are weights
+n
+• X is a predictor
+• n – degree
+• Multivariate – Degree n and m number of predictors
+Y = θ + θ X1 + θ X2 + θ X3 +…..+ θ Xm +
+0 1,1 1,2 1,3 1,m
+θ X1 2 + θ X2 2 + θ X3 2 +…..+ θ Xm 2 +
+2,1 2,2 2,3 2,m
+θ X1 3 + θ X2 3 + θ X3 3 +…..+ θ Xm 3 +
+3,1 3,2 3,3 3,m
+.
+.
+.
+θ X1 n + θ X2 n + θ X3 n +…..+ θ Xm n
+n,1 n,2 n,3 n,m
+
+
+--- PAGE 32 ---
+Examples of Polynomial
+Regression Models
+https://www.datascience
+central.com/profiles/blog
+s/linear-regression-in-pyt
+hon-use-of-numpy-scipy-
+and-statsmodels
+Print equation of the
+curve in python
+See here
+https://towardsdatascien
+ce.com/modeling-functio
+ns-78704936477a
+
+
+--- PAGE 33 ---
+Python Codes for Curve Fitting: logarithmic; exponential;
+polynomial
+• See examples here and try on your own:
+• https://www.kite.com/python/answers/how-to-do-exponential-and-logari
+thmic-curve-fitting-in-python
+• https://heartbeat.fritz.ai/a-comprehensive-guide-to-logarithmic-regression
+-d619b202fc8
+• https://towardsdatascience.com/modeling-functions-78704936477a
+• https://towardsdatascience.com/machine-learning-polynomial-regression-
+with-python-5328e4e8a386
+• https://towardsdatascience.com/introduction-to-linear-regression-and-pol
+ynomial-regression-f8adc96f31cb
+• https://www.analyticsvidhya.com/blog/2020/03/polynomial-regression-py
+thon/
+
+
+--- PAGE 34 ---
+Decision Tree
+• See Week 3 Lectures and Lab Exercises
+
+
+--- PAGE 35 ---
+KNN (K-Nearest Neighbours)
+Regression
+• We shall look at this in detail in KNN classification and regression
+
+
+--- PAGE 36 ---
+End

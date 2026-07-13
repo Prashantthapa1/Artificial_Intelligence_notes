@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Techniques Exam Study Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#172026',
+            moss: '#2f5d50',
+            clay: '#b85c38',
+            gold: '#d9a441',
+            mist: '#f4f7f5',
+            line: '#d9e1dd'
+          },
+          boxShadow: {
+            soft: '0 16px 40px rgba(23, 32, 38, 0.10)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-mist text-ink">
+  <header class="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3">
+      <a href="#top" class="flex min-w-0 items-center gap-3">
+        <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-moss text-sm font-black text-white">AI</span>
+        <span class="min-w-0">
+          <span class="block truncate text-sm font-black tracking-wide">AI Techniques Exam Hub</span>
+          <span class="block truncate text-xs text-slate-600">PDF notes, traps, formulas, and mock tests</span>
+        </span>
+      </a>
+      <nav class="ml-auto hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+        <a class="nav-link" href="#roadmap">Roadmap</a>
+        <a class="nav-link" href="#notes">Notes</a>
+        <a class="nav-link" href="#formulas">Formulas</a>
+        <a class="nav-link" href="#practice">Practice</a>
+        <a class="nav-link" href="#mock">Mock Test</a>
+      </nav>
+      <button id="menuBtn" class="icon-btn lg:hidden" type="button" aria-label="Open menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+    <nav id="mobileNav" class="hidden border-t border-line bg-white px-4 py-3 lg:hidden" aria-label="Mobile navigation">
+      <a class="mobile-link" href="#roadmap">Roadmap</a>
+      <a class="mobile-link" href="#notes">Notes</a>
+      <a class="mobile-link" href="#formulas">Formulas</a>
+      <a class="mobile-link" href="#practice">Practice</a>
+      <a class="mobile-link" href="#mock">Mock Test</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero-band">
+      <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-14">
+        <div>
+          <p class="eyebrow">Built from the PDFs in this folder</p>
+          <h1 class="mt-3 max-w-3xl text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">Master the exam topics, not just the answers.</h1>
+          <p class="mt-5 max-w-2xl text-base leading-7 text-slate-700 sm:text-lg">
+            A compact revision system for AI basics, machine learning types, regression, classification metrics,
+            logistic and softmax regression, K-means, decision trees, and reinforcement learning.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#mock" class="primary-btn">Start mock test</a>
+            <a href="#notes" class="secondary-btn">Review notes</a>
+          </div>
+        </div>
+        <div class="exam-panel">
+          <div class="panel-head">
+            <span>Exam Priority</span>
+            <strong id="coverageScore">0%</strong>
+          </div>
+          <div id="priorityList" class="space-y-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section-pad">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="section-title">
+          <p class="eyebrow">Study Roadmap</p>
+          <h2>What to revise first</h2>
+        </div>
+        <div id="roadmapGrid" class="grid gap-4 md:grid-cols-2 xl:grid-cols-4"></div>
+      </div>
+    </section>
+
+    <section id="notes" class="section-pad bg-white">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="section-title">
+          <p class="eyebrow">PDF Notes</p>
+          <h2>Keywords, takeaways, and exam traps</h2>
+        </div>
+        <div class="controls">
+          <label class="search-box">
+            <span class="sr-only">Search notes</span>
+            <input id="noteSearch" type="search" placeholder="Search keywords like entropy, R-squared, sigmoid, WCSS...">
+          </label>
+          <div id="topicFilters" class="filter-row" aria-label="Topic filters"></div>
+        </div>
+        <div id="notesGrid" class="mt-6 grid gap-4 lg:grid-cols-2"></div>
+      </div>
+    </section>
+
+    <section id="formulas" class="section-pad">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="section-title">
+          <p class="eyebrow">Formula Sheet</p>
+          <h2>Know these cold</h2>
+        </div>
+        <div id="formulaGrid" class="grid gap-4 md:grid-cols-2 xl:grid-cols-3"></div>
+
+        <div class="mt-8 grid gap-4 lg:grid-cols-3">
+          <article class="tool-card">
+            <h3>Precision Calculator</h3>
+            <div class="calc-grid">
+              <label>TP<input id="tpInput" type="number" value="80"></label>
+              <label>FP<input id="fpInput" type="number" value="20"></label>
+            </div>
+            <button class="small-btn" type="button" data-calc="precision">Calculate</button>
+            <p id="precisionOut" class="calc-output">Precision = 0.800</p>
+          </article>
+          <article class="tool-card">
+            <h3>F1 Calculator</h3>
+            <div class="calc-grid">
+              <label>Precision<input id="precisionInput" type="number" value="0.9" step="0.01"></label>
+              <label>Recall<input id="recallInput" type="number" value="0.8" step="0.01"></label>
+            </div>
+            <button class="small-btn" type="button" data-calc="f1">Calculate</button>
+            <p id="f1Out" class="calc-output">F1 = 0.847</p>
+          </article>
+          <article class="tool-card">
+            <h3>Information Gain</h3>
+            <div class="calc-grid">
+              <label>Parent H<input id="parentEntropy" type="number" value="0.9" step="0.01"></label>
+              <label>Child H<input id="childEntropy" type="number" value="0.6" step="0.01"></label>
+            </div>
+            <button class="small-btn" type="button" data-calc="gain">Calculate</button>
+            <p id="gainOut" class="calc-output">Gain = 0.300</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="flashcards" class="section-pad bg-white">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="section-title">
+          <p class="eyebrow">Flashcards</p>
+          <h2>Quick recall drill</h2>
+        </div>
+        <div class="flash-shell">
+          <button id="prevCard" class="icon-btn" type="button" aria-label="Previous flashcard">&lsaquo;</button>
+          <article id="flashCard" class="flash-card" tabindex="0" role="button" aria-label="Flip flashcard"></article>
+          <button id="nextCard" class="icon-btn" type="button" aria-label="Next flashcard">&rsaquo;</button>
+        </div>
+        <p id="flashCount" class="mt-3 text-center text-sm text-slate-600"></p>
+      </div>
+    </section>
+
+    <section id="practice" class="section-pad">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="section-title">
+          <p class="eyebrow">Practice Bank</p>
+          <h2>Questions from each PDF topic</h2>
+        </div>
+        <div id="practiceTabs" class="filter-row mb-5"></div>
+        <div id="practiceList" class="space-y-4"></div>
+      </div>
+    </section>
+
+    <section id="mock" class="section-pad bg-white">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="section-title">
+          <p class="eyebrow">Mock Test</p>
+          <h2>Interactive exam mode</h2>
+        </div>
+        <div class="quiz-layout">
+          <aside class="quiz-side">
+            <label class="block text-sm font-bold text-slate-700" for="quizTopic">Topic</label>
+            <select id="quizTopic" class="select-input">
+              <option value="all">All topics</option>
+            </select>
+            <label class="mt-4 block text-sm font-bold text-slate-700" for="quizCount">Number of questions</label>
+            <select id="quizCount" class="select-input">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="35">35</option>
+              <option value="all">All</option>
+            </select>
+            <button id="startQuiz" class="primary-btn mt-5 w-full" type="button">Generate test</button>
+            <div class="score-box">
+              <span>Score</span>
+              <strong id="scoreText">0 / 0</strong>
+              <small id="scoreHint">Answer questions to reveal explanations.</small>
+            </div>
+          </aside>
+          <div id="quizList" class="space-y-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources" class="section-pad">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="section-title">
+          <p class="eyebrow">Source PDFs</p>
+          <h2>Files reviewed</h2>
+        </div>
+        <div id="sourceList" class="grid gap-3 md:grid-cols-2 lg:grid-cols-3"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line bg-white px-4 py-8 text-center text-sm text-slate-600">
+    Built as a local static revision site from the PDFs in this workspace.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
