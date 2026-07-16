@@ -251,6 +251,57 @@ const notes = [
   }
 ];
 
+const noteExamples = {
+  "AI, ML, Deep Learning": [
+    "Example: a hand-written rule system for chess is AI, while a spam detector trained from labelled emails is ML.",
+    "Example: a neural network that learns edges, shapes, and objects from images is deep learning."
+  ],
+  "Types of AI and AI Applications": [
+    "Example: Siri or Google Translate is Narrow AI because it handles a specific task area.",
+    "Example: a maintenance model may predict machine failure from vibration and temperature sensor patterns."
+  ],
+  "Supervised, Unsupervised, Semi-supervised, Reinforcement": [
+    "Supervised example: predict house price from area, rooms, and location.",
+    "Unsupervised example: group customers by purchase behavior without predefined labels."
+  ],
+  "Linear and Multiple Regression": [
+    "Example: y = 2x + 5 predicts y as 25 when x = 10.",
+    "Example: house price can depend on size, bedrooms, age, and distance from city center."
+  ],
+  "Evaluation and Polynomial Regression": [
+    "Example: R-squared 0.85 means the model explains 85% of variation in the numeric target.",
+    "Example: a degree-10 curve may pass near every training point but fail on new data."
+  ],
+  "Logistic and Softmax Regression": [
+    "Example: logistic regression predicts pass/fail or disease/no disease.",
+    "Example: softmax can classify an iris flower as setosa, versicolor, or virginica."
+  ],
+  "Confusion Matrix and Metrics": [
+    "Example: TP=80 and FP=20 gives precision = 80 / 100 = 0.8.",
+    "Example: in disease screening, high recall is important because missing positives is costly."
+  ],
+  "K-means Clustering": [
+    "Example: cluster students into study groups by practice score and attendance.",
+    "Example: after assigning points to clusters, the new centroid is the mean of points in that cluster."
+  ],
+  "Distance Metrics": [
+    "Example: distance between (1,1) and (4,5) is 5 by Euclidean distance.",
+    "Example: Manhattan distance between (1,1) and (4,5) is |3| + |4| = 7."
+  ],
+  "Tree Structure and Splitting": [
+    "Example: a root split on Outlook may branch to Sunny, Overcast, and Rain.",
+    "Example: a leaf node can directly predict Play Tennis = Yes."
+  ],
+  "Entropy, Information Gain, Gini, Pruning": [
+    "Example: if parent entropy is 0.9 and weighted child entropy is 0.6, information gain is 0.3.",
+    "Example: pruning can remove a branch that memorizes rare training cases."
+  ],
+  "RL, Q-learning, and Policies": [
+    "Example: a game agent receives positive reward for winning and negative reward for losing.",
+    "Example: epsilon = 0.1 means explore randomly 10% of the time."
+  ]
+};
+
 const formulas = [
   { topic: "Regression", title: "Linear regression", formula: "y = wx + b", notes: ["w is weight/coefficient.", "b is bias/intercept.", "Use for continuous numeric prediction."] },
   { topic: "Regression", title: "Multiple linear regression", formula: "Y = a + b1X1 + b2X2 + ... + bnXn", notes: ["More than one predictor.", "Target variable is numeric."] },
@@ -350,6 +401,179 @@ const practiceSets = {
   ]
 };
 
+Object.assign(practiceSets, {
+  "week 1_intro ML": [
+    ["Define machine learning using T, P, and E.", "A program learns from experience E with respect to task T and performance measure P if performance at T improves with E."],
+    ["Why is deep learning called deep?", "It learns multiple successive layers of increasingly meaningful representations."],
+    ["Give one limitation of the Turing Test.", "It can reward human-like conversation style rather than prove true understanding."],
+    ["Differentiate Narrow AI and General AI.", "Narrow AI solves specific tasks; General AI would perform broadly across intellectual tasks like a human."],
+    ["Is every AI system a machine learning system?", "No. Rule-based symbolic systems are AI but do not necessarily learn from data."],
+    ["Give one example of Narrow AI.", "Spam filtering, voice assistants, recommendation systems, face recognition, or machine translation."],
+    ["What is the main idea of symbolic AI?", "It uses manually defined symbols, logic, and rules to represent knowledge and make decisions."],
+    ["What is representation in machine learning?", "The way input data or knowledge is encoded so an algorithm can use it."],
+    ["What is optimization in ML?", "The process of adjusting model parameters to reduce error or improve an objective."],
+    ["What is evaluation in ML?", "Measuring model performance using a chosen metric such as accuracy, MSE, precision, or recall."],
+    ["Give a healthcare example using computer vision.", "Detecting tumors, pneumonia, fractures, or abnormalities from medical images."],
+    ["Give a healthcare example using NLP.", "Extracting diagnosis, symptoms, or medication details from medical reports."],
+    ["What is Limited Memory AI?", "An AI system that uses recent or stored past data to make current decisions."],
+    ["What is a Reactive Machine?", "A system that responds only to current input and does not use past experience."],
+    ["Why are autonomous vehicles difficult?", "They must handle rare edge cases and make safe real-time decisions in unpredictable environments."]
+  ],
+  "chap 5 machine learning part 1": [
+    ["A robot gets reward for grasping and penalty for dropping. Which learning type?", "Reinforcement learning."],
+    ["What is semi-supervised learning?", "Using a small labelled dataset together with a larger unlabelled dataset."],
+    ["Give two unsupervised algorithms from the notes.", "K-means, DBSCAN, BIRCH, or hierarchical clustering."],
+    ["Can decision trees handle categorical and numerical data?", "Yes."],
+    ["What type of learning predicts class labels from labelled examples?", "Supervised classification."],
+    ["What type of learning predicts numeric values from labelled examples?", "Supervised regression."],
+    ["What type of learning finds groups without target labels?", "Unsupervised clustering."],
+    ["Give one association-rule learning example.", "Market basket analysis, such as bread and butter often being bought together."],
+    ["What are labels in supervised learning?", "The correct target outputs provided during training."],
+    ["What is the environment in reinforcement learning?", "The external system the agent interacts with and receives feedback from."],
+    ["What is an action in reinforcement learning?", "A choice made by the agent in a state."],
+    ["What is a reward?", "Feedback signal that tells the agent whether an action outcome was desirable."],
+    ["Why use semi-supervised learning?", "Because labelled data can be expensive while unlabelled data is easier to obtain."],
+    ["Is K-means supervised or unsupervised?", "Unsupervised, because it does not require labelled target outputs."],
+    ["Is AlphaGo an example of reinforcement learning?", "Yes, it learns decisions through reward-driven game play."]
+  ],
+  "week 2 _Regression": [
+    ["If R-squared is 0.85, what does it mean?", "85% of variance in the target is explained by the model."],
+    ["Why can adding too many predictors be harmful?", "It can artificially increase R-squared and overfit the model."],
+    ["Which graph is used for ROC?", "True Positive Rate on y-axis versus False Positive Rate on x-axis."],
+    ["What is the target type in logistic regression?", "Categorical/classes."],
+    ["What is the target type in linear regression?", "Continuous numeric values."],
+    ["Write the simple linear regression equation.", "y = wx + b, or y = mx + c."],
+    ["What is the intercept?", "The predicted value when all input features are zero."],
+    ["What is a coefficient?", "A weight showing how a feature contributes to the prediction."],
+    ["What is a residual?", "The difference between actual value and predicted value."],
+    ["What does SSE measure?", "The sum of squared errors or residuals."],
+    ["What does SST measure?", "Total variation in the target values around their mean."],
+    ["Why use adjusted R-squared?", "It penalizes useless added predictors and is better for comparing models with different feature counts."],
+    ["What is RMSE?", "Root mean squared error, an error metric in the target's unit."],
+    ["What does AUC greater than 0.5 mean?", "The classifier is better than random guessing."],
+    ["Why is accuracy not enough for imbalanced classification?", "A model can predict the majority class and still get high accuracy while missing minority cases."]
+  ],
+  "regression 1": [
+    ["What does gradient descent minimize?", "A cost function such as MSE by iteratively changing parameters."],
+    ["Batch GD vs stochastic GD?", "Batch uses the full training set each step; stochastic uses one random instance per step."],
+    ["What happens with high-degree polynomial regression?", "Training fit improves, but overfitting risk increases."],
+    ["What is regularization?", "Constraining model complexity, often by penalizing large weights."],
+    ["What is a learning rate?", "The step size used when updating parameters during gradient descent."],
+    ["What happens if the learning rate is too high?", "The optimization may overshoot, oscillate, or diverge."],
+    ["What happens if the learning rate is too low?", "Training becomes very slow and may take many iterations."],
+    ["What is the Normal Equation?", "A closed-form solution for linear regression parameters that minimize squared error."],
+    ["When can the Normal Equation be costly?", "When there are many features, because matrix operations become expensive."],
+    ["What is polynomial regression?", "Regression using transformed features such as x squared or x cubed."],
+    ["Is polynomial regression still linear in parameters?", "Yes, it is linear in the learned coefficients even when features are polynomial."],
+    ["What is overfitting?", "Model performs very well on training data but poorly on unseen test data."],
+    ["What is underfitting?", "Model is too simple and performs poorly on both training and test data."],
+    ["How can regularization reduce overfitting?", "It discourages overly large coefficients and simplifies the model."],
+    ["What is the purpose of a cost function?", "It gives a numeric measure of model error to optimize."]
+  ],
+  "logistic softmax": [
+    ["What is the difference between OvR and softmax probabilities?", "OvR computes independent class probabilities; softmax normalizes probabilities to sum to 1."],
+    ["When should softmax be preferred?", "When classes are mutually exclusive."],
+    ["Why scale features for logistic regression?", "It helps convergence and stable optimization."],
+    ["For probabilities [0.45, 0.10, 0.30], what class is predicted?", "Class 0, because it has the highest probability."],
+    ["Is logistic regression used for regression or classification?", "Classification."],
+    ["What is the sigmoid output range?", "0 to 1."],
+    ["What is sigmoid(0)?", "0.5."],
+    ["What does a sigmoid output usually represent?", "Estimated probability of the positive class."],
+    ["What threshold is commonly used in binary logistic classification?", "0.5, though it can be changed."],
+    ["What is softmax used for?", "Mutually exclusive multi-class classification."],
+    ["What must softmax probabilities sum to?", "1."],
+    ["If softmax outputs [0.2, 0.7, 0.1], which class is predicted?", "Class 1."],
+    ["What loss is commonly used with logistic or softmax classifiers?", "Cross-entropy loss."],
+    ["What does one-vs-rest train?", "One binary classifier per class against all other classes."],
+    ["Why can OvR probabilities fail to sum to 1?", "Each class probability is estimated independently."]
+  ],
+  "k means": [
+    ["State the two repeating steps of K-means.", "Assign points to nearest centroid, then update centroids as cluster means."],
+    ["If K = n, what is WCSS?", "Zero, because each point can be its own cluster."],
+    ["If silhouette scores for K=3,4,5 are 0.45,0.52,0.41, choose K.", "K=4 because 0.52 is the highest."],
+    ["Why do distance metrics matter?", "They define similarity and can change assignments or decision boundaries."],
+    ["Is K-means classification?", "No. It is unsupervised clustering."],
+    ["What is a centroid?", "The mean position of points assigned to a cluster."],
+    ["How is a new centroid calculated?", "By averaging each feature value of all points in the cluster."],
+    ["What is WCSS?", "Within-cluster sum of squares, the total squared distance from points to their cluster centroid."],
+    ["What does lower WCSS indicate?", "More compact clusters."],
+    ["Why not always choose the largest K?", "WCSS decreases with K and can reach zero, but too many clusters may be meaningless."],
+    ["What does the elbow method look for?", "A K where WCSS stops decreasing sharply."],
+    ["What does silhouette score measure?", "How well points fit their own cluster compared with other clusters."],
+    ["What is Euclidean distance between (1,1) and (4,5)?", "5."],
+    ["What is Manhattan distance between (1,1) and (4,5)?", "7."],
+    ["Why is K-means sensitive to initialization?", "Different starting centroids can lead to different final clusters."]
+  ],
+  "Week 3 Decision tree": [
+    ["What is entropy for [25,25,25,25]?", "2.000, because four equally likely classes have max entropy log2(4)."],
+    ["If entropy falls from 0.9 to 0.6, what is information gain?", "0.3."],
+    ["What is pruning?", "Reducing tree size after growth to improve generalization and reduce overfitting."],
+    ["What split should a decision tree prefer?", "High information gain and low child impurity."],
+    ["What is the root node?", "The top node where the first split is made."],
+    ["What is a decision node?", "An internal node that tests a feature and branches."],
+    ["What is a leaf node?", "A terminal node that gives the final prediction."],
+    ["What does entropy measure?", "Impurity, disorder, or uncertainty in a node."],
+    ["What is entropy of a pure node?", "0."],
+    ["What is information gain?", "Parent entropy minus weighted child entropy."],
+    ["What does Gini impurity measure?", "How mixed the classes are in a node."],
+    ["Which impurity value is better: lower or higher?", "Lower impurity is better."],
+    ["Why can deep trees overfit?", "They can memorize training-specific patterns and noise."],
+    ["Do decision trees require feature scaling?", "Usually no."],
+    ["Can decision trees handle both numerical and categorical features?", "Yes."]
+  ],
+  "Week 3 Decision tree tutorial": [
+    ["Which sklearn metric creates a confusion matrix?", "confusion_matrix from sklearn.metrics."],
+    ["What is a decision tree regression target?", "A numeric or continuous value."],
+    ["Why split train and test data?", "To evaluate performance on unseen examples."],
+    ["What does a leaf node represent?", "A final prediction, class, or decision."],
+    ["What is accuracy?", "Correct predictions divided by total predictions."],
+    ["What are true positives?", "Positive cases correctly predicted as positive."],
+    ["What are false positives?", "Negative cases incorrectly predicted as positive."],
+    ["What are false negatives?", "Positive cases incorrectly predicted as negative."],
+    ["What is precision?", "TP / (TP + FP)."],
+    ["What is recall?", "TP / (TP + FN)."],
+    ["What is F1-score?", "The harmonic mean of precision and recall."],
+    ["Why use a confusion matrix?", "It shows which classes are correctly and incorrectly predicted."],
+    ["What does train_test_split do?", "It divides data into training and testing subsets."],
+    ["Why set random_state in examples?", "To make the split and results reproducible."],
+    ["What does max_depth control?", "The maximum depth or number of split levels in a tree."]
+  ],
+  "Chap 5 Decision-tree-docx": [
+    ["What does ID3 use entropy for?", "To measure homogeneity and choose useful splits."],
+    ["What improvement does C4.5 add for continuous attributes?", "It creates thresholds to split values above or below the threshold."],
+    ["Name two pruning methods from the notes.", "Reduced error pruning and cost complexity pruning."],
+    ["What happens when a node is completely homogeneous?", "Entropy is zero and it can become a leaf."],
+    ["What does ID3 choose at each step?", "The attribute with the highest information gain."],
+    ["What is homogeneity in a node?", "The degree to which samples in the node belong to the same class."],
+    ["What is gain ratio used for?", "It adjusts information gain to reduce bias toward attributes with many values."],
+    ["Which algorithm is associated with gain ratio?", "C4.5."],
+    ["What does CART commonly use?", "Gini impurity and binary splits."],
+    ["What is reduced error pruning?", "Removing branches when validation performance does not get worse."],
+    ["What is cost complexity pruning?", "Pruning by balancing tree error with tree complexity."],
+    ["Why prune a decision tree?", "To reduce overfitting and improve generalization."],
+    ["What is a branch?", "A path from a decision node based on a feature outcome."],
+    ["What is a split attribute?", "The feature selected to divide data at a node."],
+    ["What is a threshold split?", "A numeric split such as age <= 30 versus age > 30."]
+  ],
+  "Mu_decisiontrees": [
+    ["What algorithm does Scikit-Learn use for decision trees?", "CART, which creates binary trees."],
+    ["What does a node's value attribute show?", "The number of training instances of each class at that node."],
+    ["How do decision trees help interpretability?", "Their splits create explicit rules and visible decision boundaries."],
+    ["How can decision trees be restricted to avoid overfitting?", "Limit max depth, min samples, max leaves, or prune."],
+    ["What does CART stand for?", "Classification and Regression Trees."],
+    ["What type of tree does CART produce?", "Binary trees."],
+    ["Can CART be used for regression?", "Yes."],
+    ["What does samples mean in a tree node?", "The number of training samples reaching that node."],
+    ["What does gini show in a sklearn tree?", "The impurity of that node."],
+    ["What does class show in a sklearn tree?", "The predicted majority class at that node."],
+    ["What does min_samples_split control?", "The minimum number of samples required to split an internal node."],
+    ["What does min_samples_leaf control?", "The minimum number of samples allowed in a leaf node."],
+    ["Why are decision boundaries box-like for trees?", "Trees split one feature at a time with threshold rules."],
+    ["What is one weakness of decision trees?", "They can overfit and be unstable with small data changes."],
+    ["How does a random forest reduce tree instability?", "It combines many trees trained on varied samples/features."]
+  ]
+});
+
 const quizQuestions = [
   q("Regression", "Linear regression can be used to predict continuous numerical values.", ["True", "False"], 0, "Regression predicts continuous numeric targets."),
   q("Classification", "In logistic regression, the sigmoid function outputs values between 0 and 1.", ["True", "False"], 0, "The sigmoid maps real-valued inputs to probabilities in [0,1]."),
@@ -396,6 +620,80 @@ const quizQuestions = [
   q("Regression", "Stochastic gradient descent differs from batch GD by using:", ["All data each step", "One random instance each step", "No learning rate", "Only test data"], 1, "SGD estimates gradients from random individual examples."),
   q("Decision Trees", "Pruning mainly helps reduce:", ["Underfitting only", "Overfitting", "Feature scaling", "All entropy"], 1, "Pruning simplifies the tree to improve generalization.")
 ];
+
+quizQuestions.push(
+  q("AI Basics", "Which statement is correct?", ["All AI is ML", "All ML is AI", "Deep learning is outside ML", "Symbolic AI always learns from data"], 1, "Machine learning is a subset of AI."),
+  q("AI Basics", "A rule-based expert system is best described as:", ["AI but not necessarily ML", "Always deep learning", "Unsupervised learning", "Reinforcement learning"], 0, "It can automate reasoning without learning from examples."),
+  q("AI Basics", "In ML, experience E usually means:", ["The final score", "The training data or interactions", "The number of classes", "The model name"], 1, "Experience is the data or feedback the system learns from."),
+  q("AI Basics", "Performance measure P is used to:", ["Name the algorithm", "Evaluate how well the task is done", "Store labels", "Choose a programming language"], 1, "P is the metric used to judge improvement."),
+  q("AI Basics", "Deep learning mainly learns:", ["Single manual rules", "Multiple layers of representations", "Only decision trees", "Only symbolic facts"], 1, "Depth refers to layered representation learning."),
+  q("AI Basics", "Which is an NLP task?", ["Image edge detection", "Medical report summarization", "Centroid update", "Entropy split"], 1, "NLP works with language and text."),
+  q("AI Basics", "Predictive maintenance often has imbalanced data because:", ["Failures are rare", "Sensors are missing", "There are no labels ever", "Classes are always equal"], 0, "Failure events are usually much rarer than normal operation."),
+  q("AI Basics", "Limited memory AI can use:", ["Only the current input", "Past data for current decisions", "No sensors", "Only handwritten symbols"], 1, "Limited memory systems can use recent or stored history."),
+
+  q("ML Types", "Learning from labelled input-output pairs is:", ["Supervised", "Unsupervised", "Reinforcement", "Association only"], 0, "Labels identify supervised learning."),
+  q("ML Types", "Finding hidden groups in unlabeled data is:", ["Regression", "Clustering", "Classification", "Pruning"], 1, "Clustering is an unsupervised task."),
+  q("ML Types", "Predicting wind speed as a number is:", ["Classification", "Regression", "Clustering", "Association"], 1, "Wind speed is continuous numeric output."),
+  q("ML Types", "Predicting spam or not spam is:", ["Classification", "Regression", "Clustering", "Dimensionality"], 0, "Spam/not spam is a discrete label."),
+  q("ML Types", "Using a few labelled examples and many unlabelled examples is:", ["Semi-supervised", "Pure supervised", "Pure unsupervised", "Batch learning"], 0, "Semi-supervised mixes labelled and unlabelled data."),
+  q("ML Types", "Market basket analysis is commonly linked with:", ["Association rules", "Q-learning", "Linear regression", "Softmax"], 0, "Association rules find item relationships."),
+  q("ML Types", "An RL agent learns mainly from:", ["Reward and penalty feedback", "Only fixed labels", "Only centroids", "Only entropy"], 0, "Rewards guide reinforcement learning."),
+  q("ML Types", "Customer segmentation without labels is:", ["Classification", "Regression", "Clustering", "Logistic regression"], 2, "Segmentation often groups unlabeled customers."),
+  q("ML Types", "Which pair is supervised?", ["K-means and DBSCAN", "Linear regression and decision tree classifier", "Apriori and clustering", "Q-learning and policy gradient only"], 1, "Regression and classification with labels are supervised."),
+  q("ML Types", "Which task uses continuous target values?", ["Regression", "Classification", "Clustering", "Association"], 0, "Regression predicts numeric targets."),
+  q("ML Types", "Which task uses discrete class labels?", ["Regression", "Classification", "K-means", "Elbow method"], 1, "Classification predicts classes."),
+  q("ML Types", "In RL, a policy maps:", ["States to actions", "Features to labels only", "Clusters to centroids", "Residuals to errors"], 0, "A policy defines action choice for states."),
+  q("ML Types", "DBSCAN is mainly a:", ["Clustering algorithm", "Regression metric", "Classification loss", "Pruning method"], 0, "DBSCAN is unsupervised clustering."),
+  q("ML Types", "A labelled training set contains:", ["Inputs and correct outputs", "Only centroids", "Only actions", "Only random states"], 0, "Labels are the correct outputs."),
+  q("ML Types", "Self-driving systems may combine supervised learning and:", ["Reinforcement-style decision learning", "Only R-squared", "Only Gini", "Only WCSS"], 0, "They can use several learning styles for perception and decisions."),
+
+  q("Regression", "The residual is:", ["Predicted - class index", "Actual - predicted error", "TP + FP", "A cluster center"], 1, "Residuals are prediction errors for regression."),
+  q("Regression", "The intercept is the prediction when:", ["All features are zero", "All labels are one", "R-squared is zero", "K equals n"], 0, "The intercept is the baseline value at zero inputs."),
+  q("Regression", "MSE is mainly used for:", ["Regression error", "Class probability normalization", "Cluster naming", "Text tokenization"], 0, "Mean squared error measures numeric prediction error."),
+  q("Regression", "RMSE is useful because it:", ["Is in the target unit", "Always equals accuracy", "Only works for classes", "Requires no predictions"], 0, "Taking the square root returns to the target scale."),
+  q("Regression", "Adjusted R-squared is always:", ["Greater than R-squared", "Less than or equal to R-squared", "Exactly accuracy", "Negative only"], 1, "It penalizes model complexity."),
+  q("Regression", "The Normal Equation is:", ["Iterative only", "Closed-form parameter solution", "A confusion matrix", "A clustering score"], 1, "It directly solves linear regression parameters when practical."),
+  q("Regression", "Polynomial regression can overfit when:", ["Degree is too high", "Degree is one only", "No features exist", "Target is categorical"], 0, "High-degree curves can memorize training data."),
+  q("Regression", "A very low learning rate causes:", ["Slow learning", "Instant convergence always", "No need for data", "Higher recall"], 0, "Small steps require more iterations."),
+  q("Regression", "A high learning rate may:", ["Overshoot the minimum", "Guarantee best model", "Remove all features", "Make labels discrete"], 0, "Large updates can miss or bounce around the optimum."),
+  q("Regression", "Regularization usually penalizes:", ["Large weights", "Small datasets only", "Correct predictions", "All classes equally"], 0, "Weight penalties reduce excessive complexity."),
+
+  q("Classification", "Precision answers:", ["Of predicted positives, how many were true?", "Of all actual positives, how many found?", "How much variance explained?", "How compact clusters are"], 0, "Precision focuses on correctness among predicted positives."),
+  q("Classification", "Recall answers:", ["Of actual positives, how many were found?", "Of predicted positives, how many were true?", "How many clusters exist?", "How deep a tree is"], 0, "Recall measures how many positives are captured."),
+  q("Classification", "False positive means:", ["Predicted positive but actually negative", "Predicted negative but actually positive", "Correct positive", "Correct negative"], 0, "FP is a false alarm."),
+  q("Classification", "False negative means:", ["Predicted negative but actually positive", "Predicted positive but actually negative", "Correct positive", "Correct negative"], 0, "FN is a missed positive."),
+  q("Classification", "ROC curve plots:", ["TPR vs FPR", "MSE vs RMSE", "WCSS vs K only", "Entropy vs depth only"], 0, "ROC uses true positive rate and false positive rate."),
+  q("Classification", "AUC = 0.5 roughly means:", ["Random performance", "Perfect model", "Zero error", "Maximum entropy"], 0, "0.5 is about random ranking."),
+  q("Classification", "Cross-entropy is commonly used for:", ["Classification probabilities", "K-means centroid updates", "R-squared", "Pruning only"], 0, "Cross-entropy penalizes wrong probability assignments."),
+
+  q("K-means", "The K in K-means represents:", ["Number of clusters", "Number of labels", "Number of trees", "Number of rewards"], 0, "K is chosen as the cluster count."),
+  q("K-means", "After assigning points, centroids are updated by:", ["Taking the mean", "Taking the maximum label", "Computing entropy", "Taking F1"], 0, "Centroids are cluster means."),
+  q("K-means", "K-means works best with:", ["Numeric continuous features", "Only text labels", "Only rewards", "Only class outputs"], 0, "Centroid means require numeric features."),
+  q("K-means", "Euclidean distance is also called:", ["L2 distance", "L1 distance", "Hamming distance", "Entropy"], 0, "Euclidean is L2 straight-line distance."),
+  q("K-means", "Manhattan distance is also called:", ["L1 distance", "L2 distance", "Softmax", "AUC"], 0, "Manhattan sums absolute differences."),
+  q("K-means", "Cosine similarity is often useful for:", ["Text or sparse high-dimensional vectors", "Only binary class labels", "Only tree pruning", "Only R-squared"], 0, "Cosine focuses on direction rather than magnitude."),
+  q("K-means", "A poor K-means initialization can cause:", ["Different local solution", "Guaranteed perfect clusters", "No centroids", "No assignments"], 0, "K-means can converge to local optima."),
+
+  q("Decision Trees", "The top node in a decision tree is the:", ["Root node", "Leaf node", "Terminal node", "Residual"], 0, "The root is the first split."),
+  q("Decision Trees", "A terminal prediction node is a:", ["Leaf node", "Root node", "Learning rate", "Centroid"], 0, "Leaves hold final predictions."),
+  q("Decision Trees", "ID3 primarily uses:", ["Information gain", "WCSS", "R-squared", "Softmax"], 0, "ID3 selects high information gain splits."),
+  q("Decision Trees", "CART commonly uses:", ["Gini impurity", "Sigmoid only", "R-squared only", "Cosine only"], 0, "CART is commonly associated with Gini and binary splits."),
+  q("Decision Trees", "CART produces:", ["Binary trees", "Only multiway trees", "Only neural networks", "Only clusters"], 0, "CART splits are binary."),
+  q("Decision Trees", "A split with lower child impurity is usually:", ["Better", "Worse always", "Unrelated to trees", "Only for regression"], 0, "Pure child nodes improve the split."),
+  q("Decision Trees", "Gain ratio is associated with:", ["C4.5", "K-means", "Linear regression", "Q-learning"], 0, "C4.5 uses gain ratio improvements."),
+  q("Decision Trees", "Reduced error pruning uses:", ["Validation performance", "Only WCSS", "Only softmax", "Only action rewards"], 0, "It removes branches if validation accuracy does not suffer."),
+  q("Decision Trees", "A tree with too many specific branches likely:", ["Overfits", "Underfits always", "Has no rules", "Cannot classify"], 0, "Overly deep trees can memorize noise."),
+
+  q("Reinforcement", "In RL, the learner is called the:", ["Agent", "Centroid", "Residual", "Leaf"], 0, "The agent chooses actions."),
+  q("Reinforcement", "The external world the agent interacts with is the:", ["Environment", "Loss curve", "Confusion matrix", "Feature scaler"], 0, "The environment responds to actions."),
+  q("Reinforcement", "A penalty is usually a:", ["Negative reward", "Centroid", "Positive label", "High R-squared"], 0, "Penalties discourage behavior."),
+  q("Reinforcement", "Exploration means:", ["Trying actions to gather information", "Always choosing known best action", "Computing MSE", "Pruning a tree"], 0, "Exploration tests uncertain actions."),
+  q("Reinforcement", "Exploitation means:", ["Using the best-known action", "Always random action", "Finding clusters", "Computing precision"], 0, "Exploitation uses current knowledge."),
+  q("Reinforcement", "Gamma usually represents:", ["Discount factor", "Precision", "Centroid", "Tree depth"], 0, "Gamma controls importance of future rewards."),
+  q("Reinforcement", "Alpha in Q-learning is the:", ["Learning rate", "Class label", "Number of clusters", "Entropy base"], 0, "Alpha controls update size."),
+  q("Reinforcement", "A Q-table stores values for:", ["State-action pairs", "Only labels", "Only residuals", "Only centroids"], 0, "Q(s,a) is indexed by state and action."),
+  q("Reinforcement", "Expected cumulative reward means:", ["Immediate plus future rewards", "Only current penalty", "Only class probability", "Only variance explained"], 0, "Q-values estimate long-term return.")
+);
 
 function q(topic, question, options, answer, explanation) {
   return { topic, question, options, answer, explanation };
@@ -482,7 +780,8 @@ function renderNotes() {
   const search = document.getElementById("noteSearch").value.trim().toLowerCase();
   const filtered = notes.filter(note => {
     const inTopic = activeTopic === "All" || note.topic === activeTopic;
-    const haystack = [note.title, note.topic, ...note.keywords, ...note.points, ...note.traps, ...note.pdfs].join(" ").toLowerCase();
+    const examples = noteExamples[note.title] || [];
+    const haystack = [note.title, note.topic, ...note.keywords, ...note.points, ...examples, ...note.traps, ...note.pdfs].join(" ").toLowerCase();
     return inTopic && (!search || haystack.includes(search));
   });
   const grid = document.getElementById("notesGrid");
@@ -496,6 +795,10 @@ function renderNotes() {
       </div>
       <div class="tag-row">${note.keywords.map(k => `<span class="tag">${k}</span>`).join("")}</div>
       <ul>${note.points.map(point => `<li>${point}</li>`).join("")}</ul>
+      <div class="mt-4 rounded-lg border border-line bg-white p-3">
+        <p class="text-xs font-black uppercase tracking-wide text-moss">Examples</p>
+        <ul class="mt-1">${(noteExamples[note.title] || []).map(example => `<li>${example}</li>`).join("")}</ul>
+      </div>
       <div class="mt-4 rounded-lg border border-orange-200 bg-orange-50 p-3">
         <p class="text-xs font-black uppercase tracking-wide text-orange-800">Do not miss</p>
         <ul class="mt-1">${note.traps.map(trap => `<li>${trap}</li>`).join("")}</ul>
